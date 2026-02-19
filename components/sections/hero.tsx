@@ -28,7 +28,7 @@ export function Hero() {
         <strong className="font-semibold text-muted-foreground/90">
           Growth & Media Agency for Founders
         </strong>
-        <h1 className="mt-5 max-w-3xl mx-auto text-4xl sm:text-5xl md:text-6xl leading-[1.1] font-semibold tracking-tighter text-balance">
+        <h1 className="mt-5 max-w-3xl mx-auto text-4xl sm:text-5xl md: text-6xl leading-[1.1] font-semibold tracking-tighter text-balance">
           We Build Media That Scales Modern Brands
         </h1>
         <div className="mt-8 max-w-3xl mx-auto text-lg text-muted-foreground text-balance">
@@ -54,10 +54,12 @@ export function Hero() {
           loop
           playsInline
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/dmx2xmhry/video/upload/v1771527901/portfolio_bmxoga.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
-
       <div className="mt-24 max-w-[1600px] mx-auto px-6">
         <h2 className="font-semibold text-4xl tracking-tighter md:text-5xl text-center">
           Building Media That Drives Results
@@ -73,7 +75,9 @@ export function Hero() {
             <span className="font-semibold text-5xl tracking-tight md:text-6xl">
               500+
             </span>
-            <p className="mt-6 font-medium text-xl">Podcast Episodes Produced</p>
+            <p className="mt-6 font-medium text-xl">
+              Podcast Episodes Produced
+            </p>
             <p className="mt-2 text-muted-foreground">
               High-quality podcast episodes that position founders as thought
               leaders in their space.
