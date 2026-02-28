@@ -24,9 +24,9 @@ export default function HomePage() {
       <LogoCloud />
       <VideoList />
       <Stats />
-      <WhyChooseUs />
-      <Services />
       <CaseStudies />
+      {/* <WhyChooseUs /> */}
+      <Services />
       <Testimonials />
       <Cta />
     </div>
