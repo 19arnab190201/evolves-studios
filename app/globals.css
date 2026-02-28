@@ -150,3 +150,6 @@
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration, 40s) linear infinite;
 }
+.\[animation-direction\:reverse\] {
+  animation-direction: reverse;
+}
