@@ -1,119 +1,22 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import { Marquee } from "@/components/ui/marquee";
+import { getAllVideos } from "@/lib/projects-data";
 
-const videos = [
-  {
-    id: 1,
-    title: "Prime",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772275563/Drink_Prime_ivuet2.mp4",
-  },
-  {
-    id: 2,
-    title: "Boat",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772276584/Boat_metqv6.mp4",
-  },
-  {
-    id: 3,
-    title: "Trimmer",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772276950/Trimmer_commercial_chujxc.mp4",
-  },
-  {
-    id: 4,
-    title: "Maluma Vape",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772277040/Maluma_ejaxgd.mp4",
-  },
-  {
-    id: 5,
-    title: "Chris Bar Vape",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772277191/chris_bar_vape_n4itsv.mp4",
-  },
-  {
-    id: 6,
-    title: "Super Human Black",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772277466/creatine_black_sfk9xa.mp4",
-  },
-  {
-    id: 7,
-    title: "Insane Labz",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772277590/Insane_Whey_protien_c7pagd.mp4",
-  },
-  {
-    id: 8,
-    title: "Super Human Orange",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772277984/Super_Human_Orange_rr4arv.mp4",
-  },
-  {
-    id: 9,
-    title: "Karma and Luck",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772278420/Karma_and_luck_yafx3i.mp4",
-  },
-  {
-    id: 10,
-    title: "Bliss",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772279241/Bliss_commercial_Main_fzqkhz.mp4",
-  },
-  {
-    id: 11,
-    title: "Nike",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772279054/nike_commercial_xnmuha.mp4",
-  },
-  {
-    id: 12,
-    title: "Airpods",
-    src: "https://res.cloudinary.com/dss9edy22/video/upload/v1772279334/airpods_pro_h98l6z.mp4",
-  },
-];
-
-/**
- * Cloudinary video optimization per https://cloudinary.com/documentation/video_optimization
- * - w_520: Resize to display width (card is 520px) — biggest file size reduction
- * - c_fill,ar_16:10: Fill card aspect ratio, crop intelligently
- * - vc_auto: Best codec for device (H.264, VP9, AV1)
- * - q_auto: Automatic quality (balances size vs appearance, Save-Data → eco)
- * - f_auto:video: Best format per browser (WebM, MP4, AV1)
- */
-const CLOUDINARY_VIDEO_TRANSFORM =
-  "w_520,c_fill,ar_16:10,vc_auto,q_auto,f_auto:video";
-
-/**
- * Poster optimization: so_auto (best frame), q_auto, f_auto for thumbnail
- */
-const CLOUDINARY_POSTER_TRANSFORM = "so_auto,q_auto,f_auto";
-
-function getCloudinaryVideoUrl(url: string): string {
-  const insertAt = url.indexOf("/upload/") + "/upload/".length;
-  return (
-    url.slice(0, insertAt) +
-    CLOUDINARY_VIDEO_TRANSFORM +
-    "/" +
-    url.slice(insertAt)
-  );
-}
-
-function getCloudinaryPosterUrl(url: string): string {
-  const insertAt = url.indexOf("/upload/") + "/upload/".length;
-  const path = url.slice(insertAt).replace(/\.\w+$/, "");
-  return (
-    url.slice(0, insertAt) +
-    CLOUDINARY_POSTER_TRANSFORM +
-    "/" +
-    path +
-    ".jpg"
-  );
-}
+const videos = getAllVideos();
 
 /**
  * Row 1: 1, 2, 3... (L→R)
  * Row 2: N, N-1, N-2... (R→L)
  * Load priority alternates: 1, N, 2, N-1, 3, N-2...
  */
-function getLoadPriority(videoId: number, total: number): number {
-  const row1Col = videoId - 1; // 0-based column in row 1
-  const row2Col = total - videoId; // 0-based column in row 2
-  const row1Priority = row1Col * 2 + 1; // interleaved: col 0 row1 = 1, col 1 row1 = 3...
-  const row2Priority = row2Col * 2 + 2; // col 0 row2 = 2, col 1 row2 = 4...
+function getLoadPriority(index: number, total: number): number {
+  const row1Col = index;
+  const row2Col = total - 1 - index;
+  const row1Priority = row1Col * 2 + 1;
+  const row2Priority = row2Col * 2 + 2;
   return Math.min(row1Priority, row2Priority);
 }
 
@@ -129,15 +32,15 @@ function VideoCard({
   onLoad: (loadPriority: number) => void;
 }) {
   const canLoad = loadPriority <= loadUpTo;
-  const videoUrl = getCloudinaryVideoUrl(video.src);
-  const posterUrl = getCloudinaryPosterUrl(video.src);
 
   return (
-    <div className="w-[520px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted">
+    <Link
+      href={`/case-studies/${video.projectSlug}`}
+      className="group block w-[520px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted transition-transform hover:scale-[1.02]"
+    >
       <div className="aspect-[16/10] overflow-hidden">
         <video
-          src={canLoad ? videoUrl : undefined}
-          poster={posterUrl}
+          src={canLoad ? video.src : undefined}
           className="h-full w-full object-cover"
           autoPlay
           muted
@@ -151,7 +54,7 @@ function VideoCard({
           }
         />
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -180,22 +83,22 @@ export function VideoList() {
 
       <div className="mt-16">
         <Marquee className="[--duration:50s] [--gap:1rem]" pauseOnHover>
-          {videos.map((video) => (
+          {videos.map((video, index) => (
             <VideoCard
-              key={`row1-${video.id}`}
+              key={`row1-${video.projectSlug}-${video.id}`}
               video={video}
-              loadPriority={getLoadPriority(video.id, total)}
+              loadPriority={getLoadPriority(index, total)}
               loadUpTo={loadUpTo}
               onLoad={handleLoad}
             />
           ))}
         </Marquee>
         <Marquee className="[--duration:50s] [--gap:1rem]" pauseOnHover reverse>
-          {videos.map((video) => (
+          {videos.map((video, index) => (
             <VideoCard
-              key={`row2-${video.id}`}
+              key={`row2-${video.projectSlug}-${video.id}`}
               video={video}
-              loadPriority={getLoadPriority(video.id, total)}
+              loadPriority={getLoadPriority(index, total)}
               loadUpTo={loadUpTo}
               onLoad={handleLoad}
             />

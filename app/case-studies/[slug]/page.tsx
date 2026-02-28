@@ -4,10 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  getCaseStudy,
-  getAllCaseStudies,
-} from "@/lib/case-studies-data";
+import { getProject, getAllProjects } from "@/lib/projects-data";
 import { generatePageMetadata } from "@/lib/metadata";
 
 interface CaseStudyPageProps {
@@ -15,133 +12,151 @@ interface CaseStudyPageProps {
 }
 
 export async function generateStaticParams() {
-  const studies = getAllCaseStudies();
-  return studies.map((study) => ({ slug: study.slug }));
+  const projects = getAllProjects();
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps) {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
-  if (!study) return {};
+  const project = getProject(slug);
+  if (!project) return {};
 
   return generatePageMetadata({
-    title: `${study.client} Case Study`,
-    description: study.summary,
+    title: `${project.brand} Case Study`,
+    description: project.summary,
     path: `/case-studies/${slug}`,
   });
 }
 
-export const revalidate = 3600;
-
-export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+export default async function ProjectPage({ params }: CaseStudyPageProps) {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const project = getProject(slug);
 
-  if (!study) {
+  if (!project) {
     notFound();
   }
 
-  if (study.sections) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="w-full max-w-6xl px-6 py-10">
-          <Link
-            href="/case-studies"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground"
-          >
-            ← Back to Case Studies
-          </Link>
-          <h2 className="mt-6 text-pretty text-4xl font-semibold tracking-[-0.03em] sm:mx-auto sm:max-w-xl sm:text-center md:text-[2.75rem] md:leading-[1.2]">
-            {study.headline}
-          </h2>
-          <p className="mt-2 text-center text-lg text-muted-foreground sm:text-xl">
-            {study.summary}
+  return (
+    <div className="min-h-screen">
+      {/* Hero video - full quality, no optimization */}
+      {project.videos.length > 0 && (
+        <div className="relative w-full bg-black">
+          <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            <div className="overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/10">
+              <video
+                src={project.videos[0].src}
+                className="h-auto w-full object-contain"
+                controls
+                playsInline
+                preload="auto"
+              />
+            </div>
+            <p className="mt-3 text-center text-sm text-muted-foreground">
+              {project.videos[0].title}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Content */}
+      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+        <Link
+          href="/#case-studies"
+          className="inline-flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          ← Back to Case Studies
+        </Link>
+
+        <header className="mt-8">
+          <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            {project.brand} · {project.category}
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            {study.metrics.map((metric) => (
-              <Badge key={metric} variant="outline" className="px-4 py-2 text-sm">
+          <h1 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            {project.headline}
+          </h1>
+          <p className="mt-4 text-xl leading-relaxed text-muted-foreground">
+            {project.summary}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.metrics.map((metric) => (
+              <Badge
+                key={metric}
+                variant="secondary"
+                className="px-3 py-1 text-sm font-medium"
+              >
                 {metric}
               </Badge>
             ))}
           </div>
-          <div className="mx-auto mt-16 w-full space-y-20 md:mt-20">
-            {study.sections.map((section) => (
-              <div
-                className="flex flex-col items-center gap-x-12 gap-y-6 md:flex-row md:even:flex-row-reverse"
-                key={section.category}
-              >
-                <div className="aspect-[4/3] w-full basis-1/2 shrink-0 rounded-xl border border-border/50 bg-muted" />
-                <div className="shrink-0 basis-1/2">
-                  <span className="text-sm font-medium uppercase text-muted-foreground">
-                    {section.category}
-                  </span>
-                  <h4 className="my-3 text-3xl font-semibold tracking-[-0.02em]">
-                    {section.title}
-                  </h4>
-                  <p className="text-muted-foreground">{section.details}</p>
-                  {section.link && (
-                    <Button asChild className="mt-6 gap-3 rounded-full" size="lg">
-                      <Link href={section.link}>
-                        Learn More <ArrowRight className="size-4" />
-                      </Link>
-                    </Button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-16 flex justify-center">
-            <Button asChild size="lg" className="gap-2 rounded-full">
-              <Link href="/contact">
-                Book a Strategy Call <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+        </header>
 
-  return (
-    <div className="py-24">
-      <div className="mx-auto max-w-3xl px-6">
-        <Link
-          href="/case-studies"
-          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
-          ← Back to Case Studies
-        </Link>
-        <p className="mt-6 text-sm font-medium text-muted-foreground">
-          {study.client}
-        </p>
-        <h1 className="mt-2 text-5xl font-bold tracking-tight text-foreground md:text-6xl">
-          {study.headline}
-        </h1>
-        <p className="mt-6 text-lg text-muted-foreground">{study.summary}</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          {study.metrics.map((metric) => (
-            <Badge key={metric} variant="outline" className="px-4 py-2 text-sm">
-              {metric}
-            </Badge>
-          ))}
+        {/* Additional videos (if any) */}
+        {project.videos.length > 1 && (
+          <div className="mt-16 space-y-8">
+            <h2 className="text-2xl font-semibold text-foreground">
+              More from this project
+            </h2>
+            <div className="grid gap-8 sm:grid-cols-2">
+              {project.videos.slice(1).map((video) => (
+                <div
+                  key={video.id}
+                  className="overflow-hidden rounded-xl border border-border bg-muted/50"
+                >
+                  <div className="aspect-video">
+                    <video
+                      src={video.src}
+                      className="h-full w-full object-contain"
+                      controls
+                      playsInline
+                      preload="metadata"
+                    />
+                  </div>
+                  <p className="p-4 text-sm font-medium text-muted-foreground">
+                    {video.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Story sections */}
+        <div className="mt-20 space-y-16">
+          <section className="border-l-4 border-primary/50 pl-6">
+            <h2 className="text-2xl font-semibold text-foreground">
+              The Challenge
+            </h2>
+            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+              {project.challenge}
+            </p>
+          </section>
+          <section className="border-l-4 border-primary/50 pl-6">
+            <h2 className="text-2xl font-semibold text-foreground">
+              Our Approach
+            </h2>
+            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+              {project.solution}
+            </p>
+          </section>
+          <section className="border-l-4 border-primary/50 pl-6">
+            <h2 className="text-2xl font-semibold text-foreground">
+              The Results
+            </h2>
+            <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+              {project.results}
+            </p>
+          </section>
         </div>
-        <div className="mt-16 space-y-12">
-          <section>
-            <h2 className="text-xl font-semibold text-foreground">The Challenge</h2>
-            <p className="mt-4 text-muted-foreground">{study.challenge}</p>
-          </section>
-          <section>
-            <h2 className="text-xl font-semibold text-foreground">Our Approach</h2>
-            <p className="mt-4 text-muted-foreground">{study.solution}</p>
-          </section>
-          <section>
-            <h2 className="text-xl font-semibold text-foreground">The Results</h2>
-            <p className="mt-4 text-muted-foreground">{study.results}</p>
-          </section>
-        </div>
-        <div className="mt-16 flex justify-center">
-          <Button asChild size="lg">
-            <Link href="/contact">Book a Strategy Call</Link>
+
+        {/* CTA */}
+        <div className="mt-20 flex flex-col gap-4 border-t border-border pt-12 sm:flex-row sm:items-center sm:gap-6">
+          <Button asChild size="lg" className="gap-2">
+            <Link href="/contact">
+              Book a Strategy Call <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href="/#case-studies">View More Case Studies</Link>
           </Button>
         </div>
       </div>

@@ -1,0 +1,229 @@
+{
+  "projects": [
+    {
+      "slug": "prime",
+      "brand": "Prime",
+      "category": "Sports & Beverage",
+      "headline": "Prime",
+      "summary": "Full creative production for Prime's entry into the hydration market. TV-ready spots, social cutdowns, and influencer content that matched the brand's energy and Gen-Z audience.",
+      "metrics": ["2M+ impressions", "8 platforms", "Gen-Z audience"],
+      "challenge": "Prime needed to break into a crowded hydration market dominated by legacy brands. They required content that could cut through the noise and resonate with a young, social-first audience.",
+      "solution": "We delivered a full creative suite: hero TV spots, platform-specific social cutdowns, and influencer-ready content. Every asset was optimized for virality while staying true to the brand's bold, energetic identity.",
+      "results": "The campaign drove over 2 million impressions in the first month. Spots were adapted across 8 platforms with strong engagement. Prime established a distinct visual identity in the category.",
+      "outcome": "Campaign drove 2M+ impressions in first month. Spots adapted across 8 platforms.",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Prime",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772275563/Drink_Prime_ivuet2.mp4"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "slug": "boat",
+      "brand": "Boat",
+      "category": "Consumer Electronics",
+      "headline": "Boat",
+      "summary": "Audio brand storytelling that puts product and lifestyle front and center. Hero spots and social-first content that resonates with India's youth.",
+      "metrics": ["Retail + Digital", "Influencer scale", "Youth audience"],
+      "challenge": "Boat needed to stand out in India's competitive audio market. Their products were strong, but they lacked a cohesive visual language that could scale across retail, digital, and influencer channels.",
+      "solution": "We created hero spots and social-first content that blended product showcase with lifestyle moments. From unboxing to real-world use, every piece told an authentic story that resonated with India's youth.",
+      "results": "Assets scaled seamlessly across retail displays, digital campaigns, and influencer partnerships. The brand established a recognizable visual identity that drove consideration and conversion.",
+      "outcome": "Assets scaled across retail, digital, and influencer partnerships.",
+      "videos": [
+        {
+          "id": 2,
+          "title": "Boat",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772276584/Boat_metqv6.mp4"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "slug": "nike",
+      "brand": "Nike",
+      "category": "Athletic & Lifestyle",
+      "headline": "Nike",
+      "summary": "Commercial production aligned with Nike's performance and culture pillars. Polished spots that fit global brand guidelines while pushing creative boundaries for regional campaigns.",
+      "metrics": ["APAC integration", "Global guidelines", "Scaled quality"],
+      "challenge": "Nike's regional teams needed high-quality commercial content that could meet global brand standards while delivering locally relevant creative for APAC markets.",
+      "solution": "We delivered polished spots that aligned with Nike's performance and culture pillars. Every frame met brand guidelines while pushing creative boundaries appropriate for regional campaigns.",
+      "results": "Content integrated into regional campaigns across APAC. Consistent quality at scale enabled local teams to deploy with confidence. Strong performance against brand KPIs.",
+      "outcome": "Integrated into regional campaigns across APAC. Consistent quality at scale.",
+      "videos": [
+        {
+          "id": 11,
+          "title": "Nike",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772279054/nike_commercial_xnmuha.mp4"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "slug": "bliss",
+      "brand": "Bliss",
+      "category": "Wellness & Lifestyle",
+      "headline": "Bliss",
+      "summary": "End-to-end production for Bliss's brand refresh. Premium visual identity—product hero shots, testimonial content, and lifestyle vignettes for D2C and retail.",
+      "metrics": ["40% above benchmark", "Full asset library", "D2C + Retail"],
+      "challenge": "Bliss needed a complete brand refresh to compete in the premium wellness space. They required a cohesive visual identity that could work across D2C, retail, and social.",
+      "solution": "From concept to final cut, we shaped a premium visual identity. Product hero shots, testimonial content, and lifestyle vignettes were designed to perform across every channel.",
+      "results": "A full asset library was delivered. Content is performing 40% above category benchmarks. The refreshed identity has become a key differentiator in their market.",
+      "outcome": "Full asset library delivered. Content performing 40% above benchmarks.",
+      "videos": [
+        {
+          "id": 10,
+          "title": "Bliss",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772279241/Bliss_commercial_Main_fzqkhz.mp4"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "slug": "trimmer",
+      "brand": "Trimmer",
+      "category": "Consumer Electronics",
+      "headline": "Trimmer",
+      "summary": "Commercial production for a grooming brand. Clean, product-focused spots that highlight features and build trust.",
+      "metrics": ["Product-focused", "Feature highlights", "Trust building"],
+      "challenge": "Trimmer needed to communicate product quality and features in a crowded grooming market without feeling generic or dated.",
+      "solution": "We created clean, product-focused spots that highlighted key features while maintaining a modern, premium aesthetic. Every frame built trust through clarity and polish.",
+      "results": "The campaign performed strongly in performance channels. Product clarity drove consideration, and the premium feel elevated the brand in the category.",
+      "outcome": "Product clarity drove consideration across digital channels.",
+      "videos": [
+        {
+          "id": 3,
+          "title": "Trimmer",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772276950/Trimmer_commercial_chujxc.mp4"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "maluma-vape",
+      "brand": "Maluma Vape",
+      "category": "Lifestyle",
+      "headline": "Maluma Vape",
+      "summary": "Celebrity-aligned commercial production. Bold visuals that connect product to lifestyle and culture.",
+      "metrics": ["Celebrity alignment", "Cultural relevance", "Bold visuals"],
+      "challenge": "Maluma Vape needed to leverage their celebrity connection while building a distinct brand identity that could extend beyond a single partnership.",
+      "solution": "We produced bold, lifestyle-forward spots that connected the product to culture and aspiration. The visuals were designed to feel authentic and shareable across social channels.",
+      "results": "Strong engagement across social platforms. The campaign established a visual language that could scale for future product launches.",
+      "outcome": "Strong engagement and scalable visual language established.",
+      "videos": [
+        {
+          "id": 4,
+          "title": "Maluma Vape",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277040/Maluma_ejaxgd.mp4"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "chris-bar",
+      "brand": "Chris Bar Vape",
+      "category": "Lifestyle",
+      "headline": "Chris Bar Vape",
+      "summary": "Vape brand commercial production. Premium positioning through refined visuals and storytelling.",
+      "metrics": ["Premium positioning", "Refined visuals", "Brand elevation"],
+      "challenge": "Chris Bar needed to differentiate in a competitive category through premium positioning and visual refinement.",
+      "solution": "We delivered refined spots that elevated the product through careful framing, lighting, and pacing. The result was a premium feel that stood out in the category.",
+      "results": "The campaign helped establish Chris Bar as a premium option. Content performed well in targeted channels.",
+      "outcome": "Premium positioning established in category.",
+      "videos": [
+        {
+          "id": 5,
+          "title": "Chris Bar Vape",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277191/chris_bar_vape_n4itsv.mp4"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "super-human",
+      "brand": "Super Human",
+      "category": "Supplement & Wellness",
+      "headline": "Super Human",
+      "summary": "Supplement brand commercial production. Performance-focused creative across product lines.",
+      "metrics": ["2 product lines", "Performance focus", "Category authority"],
+      "challenge": "Super Human had multiple product lines and needed cohesive creative that could work for each while building overall brand authority.",
+      "solution": "We produced spots for their Black and Orange lines that shared a consistent visual language while allowing each product to shine. Performance and results were central to the messaging.",
+      "results": "Both campaigns drove strong engagement. The consistent visual system made future launches faster and more cost-effective.",
+      "outcome": "Cohesive creative across product lines. Strong engagement.",
+      "videos": [
+        {
+          "id": 6,
+          "title": "Super Human Black",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277466/creatine_black_sfk9xa.mp4"
+        },
+        {
+          "id": 8,
+          "title": "Super Human Orange",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277984/Super_Human_Orange_rr4arv.mp4"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "insane-labz",
+      "brand": "Insane Labz",
+      "category": "Supplement & Fitness",
+      "headline": "Insane Labz",
+      "summary": "Fitness supplement commercial production. High-energy creative that matches the brand's intensity.",
+      "metrics": ["High-energy creative", "Fitness audience", "Brand intensity"],
+      "challenge": "Insane Labz needed creative that could match their brand's intensity and resonate with a serious fitness audience.",
+      "solution": "We produced high-energy spots that captured the brand's personality. The visuals were bold and unapologetic, designed to cut through in a crowded supplement space.",
+      "results": "The campaign resonated strongly with the target audience. Engagement metrics exceeded benchmarks.",
+      "outcome": "Strong resonance with fitness audience. Exceeded engagement benchmarks.",
+      "videos": [
+        {
+          "id": 7,
+          "title": "Insane Labz",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277590/Insane_Whey_protien_c7pagd.mp4"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "karma-luck",
+      "brand": "Karma and Luck",
+      "category": "Lifestyle",
+      "headline": "Karma and Luck",
+      "summary": "Lifestyle brand commercial production. Authentic storytelling that connects product to identity.",
+      "metrics": ["Authentic storytelling", "Identity-driven", "Lifestyle positioning"],
+      "challenge": "Karma and Luck needed to build a brand story that felt authentic and connected to their audience's identity.",
+      "solution": "We created spots that blended product with lifestyle in an authentic way. The visuals told a story that audiences could see themselves in.",
+      "results": "Strong performance in social and influencer channels. The brand established a clear identity in the space.",
+      "outcome": "Authentic identity established. Strong social performance.",
+      "videos": [
+        {
+          "id": 9,
+          "title": "Karma and Luck",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772278420/Karma_and_luck_yafx3i.mp4"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "airpods",
+      "brand": "Airpods",
+      "category": "Consumer Electronics",
+      "headline": "Airpods",
+      "summary": "Audio product commercial production. Premium product storytelling for a tech leader.",
+      "metrics": ["Premium product", "Tech audience", "Product storytelling"],
+      "challenge": "AirPods needed to communicate premium quality and seamless experience in a concise, scroll-stopping format.",
+      "solution": "We delivered spots that highlighted product design and user experience. Clean, premium visuals that matched the product's positioning.",
+      "results": "Content performed strongly in digital channels. The premium feel reinforced brand perception.",
+      "outcome": "Premium product storytelling. Strong digital performance.",
+      "videos": [
+        {
+          "id": 12,
+          "title": "Airpods",
+          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772279334/airpods_pro_h98l6z.mp4"
+        }
+      ],
+      "featured": false
+    }
+  ]
+}

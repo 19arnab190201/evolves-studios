@@ -8,18 +8,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getAllCaseStudies } from "@/lib/case-studies-data";
+import { getAllProjects } from "@/lib/projects-data";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
   title: "Case Studies",
   description:
-    "Real results for founders and SaaS companies. See how Evolves Studios has helped brands scale through podcast production and content strategy.",
+    "Real results for founders and SaaS companies. See how Evolves Studios has helped brands scale through creative production and content strategy.",
   path: "/case-studies",
 });
 
 export default function CaseStudiesPage() {
-  const studies = getAllCaseStudies();
+  const projects = getAllProjects();
 
   return (
     <div className="py-24">
@@ -32,18 +32,18 @@ export default function CaseStudiesPage() {
           category-defining brands.
         </p>
         <div className="mt-16 grid gap-8 md:grid-cols-2">
-          {studies.map((study) => (
-            <Card key={study.slug}>
+          {projects.map((project) => (
+            <Card key={project.slug}>
               <CardHeader>
-                <CardDescription>{study.client}</CardDescription>
-                <CardTitle className="text-2xl">{study.headline}</CardTitle>
+                <CardDescription>{project.brand} · {project.category}</CardDescription>
+                <CardTitle className="text-2xl">{project.headline}</CardTitle>
                 <CardDescription className="text-base">
-                  {study.summary}
+                  {project.summary}
                 </CardDescription>
               </CardHeader>
               <CardFooter className="justify-center">
                 <Button asChild variant="outline" size="default">
-                  <Link href={`/case-studies/${study.slug}`}>
+                  <Link href={`/case-studies/${project.slug}`}>
                     View Case Study
                   </Link>
                 </Button>
