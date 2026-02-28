@@ -11,7 +11,7 @@ const navLinks = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-background mt-4">
+    <header className="sticky top-0 z-50 w-full bg-background">
       <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex min-w-[140px] shrink-0">
           <Link

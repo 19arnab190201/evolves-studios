@@ -18,15 +18,15 @@ const features = getFeaturedProjects().map((p) => ({
 export const CaseStudies = () => {
   return (
     <div id="case-studies" className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-(--breakpoint-lg) px-6 py-10">
-        <h2 className="text-pretty font-semibold text-4xl tracking-[-0.03em] md:text-[2.75rem] md:leading-[1.2]">
+      <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+        <h2 className="text-left text-pretty font-semibold text-4xl tracking-[-0.03em] md:text-[2.75rem] md:leading-[1.2]">
           Case Studies
         </h2>
-        <p className="mt-2 text-lg text-muted-foreground sm:text-xl">
+        <p className="mt-2 text-left text-lg text-muted-foreground sm:text-xl">
           Real results for founders and SaaS companies building
           category-defining brands.
         </p>
-        <div className="mx-auto mt-8 w-full space-y-20 md:mt-16">
+        <div className="mt-12 w-full space-y-20 md:mt-16">
           {features.map((feature, index) => (
             <div
               className="flex flex-col items-stretch gap-x-12 gap-y-6 md:flex-row md:items-center md:even:flex-row-reverse"
