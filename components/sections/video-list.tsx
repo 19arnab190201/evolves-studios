@@ -7,17 +7,8 @@ import { getAllVideos } from "@/lib/projects-data";
 
 const videos = getAllVideos();
 
-/**
- * Row 1: 1, 2, 3... (L→R)
- * Row 2: N, N-1, N-2... (R→L)
- * Load priority alternates: 1, N, 2, N-1, 3, N-2...
- */
 function getLoadPriority(index: number, total: number): number {
-  const row1Col = index;
-  const row2Col = total - 1 - index;
-  const row1Priority = row1Col * 2 + 1;
-  const row2Priority = row2Col * 2 + 2;
-  return Math.min(row1Priority, row2Priority);
+  return index + 1;
 }
 
 function VideoCard({
@@ -36,7 +27,7 @@ function VideoCard({
   return (
     <Link
       href={`/case-studies/${video.projectSlug}`}
-      className="group block w-[520px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted transition-transform hover:scale-[1.02]"
+      className="group block w-[520px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted transition-transform duration-300 ease-in-out hover:scale-[1.05]"
     >
       <div className="aspect-[16/10] overflow-hidden">
         <video
@@ -85,18 +76,7 @@ export function VideoList() {
         <Marquee className="[--duration:50s] [--gap:1rem]" pauseOnHover>
           {videos.map((video, index) => (
             <VideoCard
-              key={`row1-${video.projectSlug}-${video.id}`}
-              video={video}
-              loadPriority={getLoadPriority(index, total)}
-              loadUpTo={loadUpTo}
-              onLoad={handleLoad}
-            />
-          ))}
-        </Marquee>
-        <Marquee className="[--duration:50s] [--gap:1rem]" pauseOnHover reverse>
-          {videos.map((video, index) => (
-            <VideoCard
-              key={`row2-${video.projectSlug}-${video.id}`}
+              key={`${video.projectSlug}-${video.id}`}
               video={video}
               loadPriority={getLoadPriority(index, total)}
               loadUpTo={loadUpTo}
