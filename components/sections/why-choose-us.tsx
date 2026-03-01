@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Section } from "@/components/ui/section";
 import {
   ArrowUpRightIcon,
   BinocularsIcon,
@@ -29,9 +30,9 @@ const plusPoints = [
 
 export function WhyChooseUs() {
   return (
-    <div
+    <Section
       id="why-choose-us"
-      className="max-w-(--breakpoint-xl) mx-auto px-6 text-center py-24"
+      className="max-w-(--breakpoint-xl) mx-auto px-6 text-center"
     >
       <strong className="font-semibold text-muted-foreground">
         Why Choose Us
@@ -71,7 +72,7 @@ export function WhyChooseUs() {
         </p>
         <LogoCloud />
       </div>
-    </div>
+    </Section>
   );
 }
 

@@ -1,6 +1,9 @@
+import { Section } from "@/components/ui/section";
+
 export function Stats() {
   return (
-    <div className="mt-24 max-w-[1600px] mx-auto px-6">
+    <Section>
+      <div className="max-w-[1600px] mx-auto px-6">
       <h2 className="font-semibold text-4xl tracking-tighter md:text-5xl text-center">
         Building Media That Drives Results
       </h2>
@@ -54,6 +57,7 @@ export function Stats() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </Section>
   );
 }

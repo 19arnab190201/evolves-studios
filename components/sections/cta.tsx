@@ -2,11 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/ui/section";
 
 export function Cta() {
   return (
-    <div className="px-6">
-      <div className="dark:border relative mx-auto my-14 w-full max-w-screen-lg overflow-hidden rounded-2xl border bg-background px-6 py-8 text-foreground dark md:px-14 md:py-12">
+    <Section>
+      <div className="dark:border relative mx-auto w-full max-w-screen-lg overflow-hidden rounded-2xl border bg-background px-6 py-8 text-foreground dark md:px-14 md:py-12">
         <svg
           aria-hidden
           className="pointer-events-none absolute inset-0 h-[200%] w-full fill-gray-400/30 stroke-gray-400/30 [mask-image:radial-gradient(400px_circle_at_right,white,rgba(255,255,255,0.6),transparent)] inset-x-0 inset-y-[-30%] skew-y-12"
@@ -275,6 +276,6 @@ export function Cta() {
           </Button>
         </div>
       </div>
-    </div>
+    </Section>
   );
 }

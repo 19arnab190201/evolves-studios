@@ -1,3 +1,5 @@
+import { Section } from "@/components/ui/section";
+
 const clientLogos = [
   "TechFlow",
   "ScaleUp",
@@ -8,7 +10,7 @@ const clientLogos = [
 
 export function ClientLogos() {
   return (
-    <section className="border-t border-border py-16">
+    <Section className="border-t border-border">
       <div className="mx-auto max-w-6xl px-6">
         <p className="mb-8 text-center text-sm font-medium text-muted-foreground">
           Trusted by founders at
@@ -24,6 +26,6 @@ export function ClientLogos() {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

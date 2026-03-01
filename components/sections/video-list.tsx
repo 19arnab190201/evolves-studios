@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
+import { Section } from "@/components/ui/section";
 import { Marquee } from "@/components/ui/marquee";
 import { getAllVideos } from "@/lib/projects-data";
+import { getCloudinaryVideoUrl } from "@/lib/cloudinary";
 
 const videos = getAllVideos();
 
@@ -23,15 +25,30 @@ function VideoCard({
   onLoad: (loadPriority: number) => void;
 }) {
   const canLoad = loadPriority <= loadUpTo;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    if (!canLoad || !containerRef.current) return;
+    const el = containerRef.current;
+    const ro = new ResizeObserver((entries) => {
+      const { width, height } = entries[0]?.contentRect ?? {};
+      if (width > 0 && height > 0) {
+        setVideoSrc(getCloudinaryVideoUrl(video.src, width, height));
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [canLoad, video.src]);
 
   return (
     <Link
       href={`/case-studies/${video.projectSlug}`}
       className="group block w-[520px] shrink-0 overflow-hidden rounded-lg border border-border bg-muted transition-transform duration-300 ease-in-out hover:scale-[1.05]"
     >
-      <div className="aspect-[16/10] overflow-hidden">
+      <div ref={containerRef} className="aspect-[16/10] overflow-hidden">
         <video
-          src={canLoad ? video.src : undefined}
+          src={videoSrc}
           className="h-full w-full object-cover"
           autoPlay
           muted
@@ -63,7 +80,7 @@ export function VideoList() {
   );
 
   return (
-    <div className="mt-24 w-full overflow-hidden px-6">
+    <Section className="w-full overflow-hidden px-6">
       <h2 className="font-semibold text-4xl tracking-tighter md:text-5xl text-center">
         Our Work in Motion
       </h2>
@@ -85,6 +102,6 @@ export function VideoList() {
           ))}
         </Marquee>
       </div>
-    </div>
+    </Section>
   );
 }

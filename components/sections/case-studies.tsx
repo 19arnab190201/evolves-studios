@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/ui/section";
 import { getFeaturedProjects } from "@/lib/projects-data";
 
 const features = getFeaturedProjects().map((p) => ({
@@ -17,8 +18,12 @@ const features = getFeaturedProjects().map((p) => ({
 
 export const CaseStudies = () => {
   return (
-    <div id="case-studies" className="flex min-h-screen items-center justify-center">
-      <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-8 sm:py-28 lg:px-12 lg:py-32">
+    <Section
+      as="div"
+      id="case-studies"
+      className="flex min-h-screen items-center justify-center"
+    >
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-12">
         <h2 className="text-left text-pretty font-semibold text-4xl tracking-[-0.03em] md:text-[2.75rem] md:leading-[1.2]">
           Case Studies
         </h2>
@@ -34,7 +39,7 @@ export const CaseStudies = () => {
             >
               <Link
                 href={feature.tutorialLink}
-                className="group aspect-[4/3] w-full basis-1/2 overflow-hidden rounded-xl border border-border/50 bg-muted"
+                className="group aspect-video w-full basis-1/2 overflow-hidden rounded-xl border border-border/50 bg-muted"
               >
                 <video
                   src={feature.videoSrc}
@@ -71,7 +76,7 @@ export const CaseStudies = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Section>
   );
 };
 

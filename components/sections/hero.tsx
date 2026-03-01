@@ -1,52 +1,57 @@
+import { ArrowUpRight, CirclePlay } from "lucide-react";
+import { HeroVideo } from "@/components/sections/hero-video";
 import Link from "next/link";
-
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Stats } from "@/components/sections/stats";
+import { Section } from "@/components/ui/section";
 
-const dottedPatternStyle = {
-  backgroundImage: `linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px)`,
-  backgroundSize: "20px 20px",
-  backgroundPosition: "0px 0px, 0px 0px",
-  maskImage: `repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-    repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-    linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)`,
-  maskComposite: "intersect" as const,
-  WebkitMaskImage: `repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-    repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-    linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)`,
-  WebkitMaskComposite: "source-in" as const,
-};
-
-export function Hero() {
+export default function Hero() {
   return (
-    <div className="min-h-[calc(100svh-10rem)] py-12 !pb-0 max-w-(--breakpoint-xl) mx-auto text-center px-6">
-      {" "}
-      <div className="relative max-w-4xl mx-auto py-12">
-        <div className="absolute inset-0 -z-10" style={dottedPatternStyle} />
-        <strong className="text-lg font-semibold text-muted-foreground/90 sm:text-xl">
-          Growth & Media Agency for Founders
-        </strong>
-        <h1 className="mt-5 max-w-3xl mx-auto text-5xl sm:text-6xl md:text-7xl leading-[1.1] font-semibold tracking-tighter text-balance">
-          We Build Media That Scales Modern Brands
-        </h1>
-        <div className="mt-8 max-w-3xl mx-auto text-xl text-muted-foreground text-balance sm:text-2xl">
-          <p>
+    <Section
+      as="section"
+      size="large"
+      className="flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center !pt-16"
+    >
+      <div className="mx-auto grid w-full max-w-(--breakpoint-xl) gap-12 px-6 py-6 lg:grid-cols-[5fr_7fr]">
+        <div className="text-left">
+          <Badge
+            asChild
+            className="rounded-full border-border py-1"
+            variant="secondary"
+          >
+            <Link href="#case-studies">
+              Growth & Media Agency <ArrowUpRight className="ml-1 size-4" />
+            </Link>
+          </Badge>
+          <h1 className="mt-6 max-w-[20ch] font-semibold text-4xl leading-[1.2]! tracking-[-0.035em] md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem]">
+            We Build Media That Scales Brands
+          </h1>
+          <p className="mt-6 max-w-[60ch] text-foreground/80 sm:text-lg">
             Podcast production, content repurposing, and founder brand building
-            for SaaS companies ready to build category-defining media.
+            for SaaS companies and founders. We help you create media that
+            drives growth.
           </p>
+          <div className="mt-12 flex items-center gap-4">
+            <Button asChild className="rounded-full text-base" size="lg">
+              <Link href="/contact">
+                Book a Call <ArrowUpRight className="ml-1 size-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              className="rounded-full text-base shadow-none"
+              size="lg"
+              variant="outline"
+            >
+              <Link href="#case-studies">
+                <CirclePlay className="mr-1 size-4" /> View Our Work
+              </Link>
+            </Button>
+          </div>
         </div>
-        <div className="mt-12 flex gap-4 justify-center">
-          <Button size="lg" asChild>
-            <Link href="/contact">Book a Strategy Call</Link>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/case-studies">View Case Studies</Link>
-          </Button>
-        </div>
+
+        <HeroVideo />
       </div>
-    </div>
+    </Section>
   );
 }

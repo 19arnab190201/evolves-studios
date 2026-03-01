@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
+import { Section } from "@/components/ui/section";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Marquee } from "../ui/marquee";
@@ -62,7 +63,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => (
-  <div className="flex items-center justify-center py-10">
+  <Section className="flex items-center justify-center">
     <div className="h-full w-full">
       <h2 className="text-pretty px-6 text-center font-semibold text-5xl tracking-[-0.03em]">
         Success Stories
@@ -81,7 +82,7 @@ const Testimonials = () => (
         </Marquee>
       </div>
     </div>
-  </div>
+  </Section>
 );
 
 const TestimonialList = () =>

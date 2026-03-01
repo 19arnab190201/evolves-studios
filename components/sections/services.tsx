@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Section } from "@/components/ui/section";
 import {
   BarChart3,
   Mic2,
@@ -70,7 +71,7 @@ const gridBackgroundStyle = {
 
 export function Services() {
   return (
-    <section className="mx-auto flex max-w-screen-xl flex-col px-6 py-12 sm:py-14">
+    <Section className="mx-auto flex max-w-screen-xl flex-col px-6">
       <h2 className="text-pretty text-center text-4xl font-semibold tracking-tight sm:text-5xl">
         Our Services
       </h2>
@@ -103,6 +104,6 @@ export function Services() {
           );
         })}
       </div>
-    </section>
+    </Section>
   );
 }
