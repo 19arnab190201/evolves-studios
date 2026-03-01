@@ -15,7 +15,7 @@ const LogoCloud = () => {
   return (
     <Section className="flex items-center justify-center px-6 !pt-0">
       <div className="overflow-hidden">
-        <div className="mt-14 max-w-(--breakpoint-xl) space-y-8">
+        <div className="mx-auto mt-14 max-w-7xl space-y-8">
           <Marquee
             className="mask-x-from-70% mask-x-to-90% [--duration:40s] [&_svg]:mr-10"
             pauseOnHover

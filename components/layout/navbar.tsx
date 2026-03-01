@@ -32,7 +32,7 @@ export function Navbar() {
           className={`flex w-full items-center justify-between px-6 py-1 transition-[border-radius,background-color,border-color,box-shadow,max-width] duration-500 ease-in-out ${
             isScrolled
               ? "mx-auto max-w-3xl rounded-full border border-border bg-muted/50 shadow-sm"
-              : "max-w-(--breakpoint-xl)"
+              : "mx-auto max-w-7xl"
           }`}
         >
           <Link href="/" className="flex shrink-0 items-center gap-2">

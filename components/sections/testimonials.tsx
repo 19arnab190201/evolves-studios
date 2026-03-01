@@ -64,7 +64,7 @@ const testimonials = [
 
 const Testimonials = () => (
   <Section className="flex items-center justify-center">
-    <div className="h-full w-full">
+    <div className="mx-auto h-full w-full max-w-6xl px-6">
       <h2 className="text-pretty px-6 text-center font-semibold text-5xl tracking-[-0.03em]">
         Success Stories
       </h2>

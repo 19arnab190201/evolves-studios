@@ -13,7 +13,7 @@ export default function Hero() {
       size="large"
       className="flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center !pt-16"
     >
-      <div className="mx-auto grid w-full max-w-(--breakpoint-xl) gap-12 px-6 py-6 lg:grid-cols-[5fr_7fr]">
+      <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-6 lg:grid-cols-[5fr_7fr]">
         <div className="text-left">
           <Badge
             asChild
