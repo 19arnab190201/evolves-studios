@@ -1,7 +1,8 @@
 import { ArrowUpRight, CirclePlay } from "lucide-react";
-import { HeroVideo } from "@/components/sections/hero-video";
 import Link from "next/link";
+import Aurora from "@/components/aurora";
 import { CalendlyLink } from "@/components/calendly-link";
+import { HeroVideo } from "@/components/sections/hero-video";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
@@ -11,9 +12,17 @@ export default function Hero() {
     <Section
       as="section"
       size="large"
-      className="flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center !pt-16"
+      className="relative -mt-20 flex min-h-[100svh] flex-col items-center justify-center overflow-hidden !pt-20"
     >
-      <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 py-6 lg:grid-cols-[5fr_7fr]">
+      <div className="pointer-events-none absolute inset-0">
+        <Aurora
+          colorStops={["#dcdbdb", "#9e9e9e", "#4f4f4f"]}
+          blend={0.46}
+          amplitude={1.0}
+          speed={0.5}
+        />
+      </div>
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-6 py-6 lg:grid-cols-[5fr_7fr]">
         <div className="text-left">
           <Badge
             asChild

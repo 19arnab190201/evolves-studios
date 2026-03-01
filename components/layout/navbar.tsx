@@ -23,15 +23,15 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-background transition-shadow duration-300 ${
-        isScrolled ? "shadow-sm" : ""
+      className={`sticky top-0 z-50 w-full bg-transparent transition-shadow duration-300 ${
+        isScrolled ? "" : ""
       }`}
     >
       <nav className="flex h-20 items-center justify-center px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex w-full items-center justify-between px-6 py-1 transition-[border-radius,background-color,border-color,box-shadow,max-width] duration-500 ease-in-out ${
+          className={`flex w-full items-center justify-between px-6 py-1 transition-[border-radius,background-color,backdrop-filter,border-color,box-shadow,max-width] duration-500 ease-in-out ${
             isScrolled
-              ? "mx-auto max-w-3xl rounded-full border border-border bg-muted/50 shadow-sm"
+              ? "mx-auto max-w-3xl rounded-full border border-border bg-background/60 shadow-sm backdrop-blur-md"
               : "mx-auto max-w-7xl"
           }`}
         >
