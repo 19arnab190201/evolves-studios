@@ -21,7 +21,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       <Hero />
-      {/* <LogoCloud /> */}
+      <LogoCloud />
       {/* <VideoList /> */}
       <Stats />
       <CaseStudies />

@@ -15,7 +15,7 @@ const Logo = ({ src }: { src: string }) => (
   <img
     src={src}
     alt="Logo"
-    className="max-h-full max-w-[200px] object-contain"
+    className="max-h-full max-w-[200px] rounded-lg object-contain"
   />
 );
 

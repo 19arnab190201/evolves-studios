@@ -9,41 +9,43 @@ import {
   Logo08,
 } from "@/components/logos";
 import { Marquee } from "@/components/ui/marquee";
+import { Section } from "@/components/ui/section";
 
 const LogoCloud = () => {
   return (
-    <div className="w-full mt-10">
-      <div className="space-y-1">
-        <Marquee className="[--duration:40s] [&_svg]:mr-10" pauseOnHover>
-          {[Logo01, Logo02, Logo03, Logo04, Logo05, Logo06, Logo07, Logo08].map(
-            (Logo, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center w-48 h-20 px-6 py-3 border border-gray-200 rounded-[10px] bg-white"
-              >
-                <Logo />
-              </div>
-            ),
-          )}
-        </Marquee>
-        <Marquee
-          className="[--duration:40s] [&_svg]:mr-10"
-          pauseOnHover
-          reverse
-        >
-          {[Logo01, Logo02, Logo03, Logo04, Logo05, Logo06, Logo07, Logo08].map(
-            (Logo, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center w-48 h-20 px-6 py-3 border border-gray-200 rounded-[10px] bg-white"
-              >
-                <Logo />
-              </div>
-            ),
-          )}
-        </Marquee>
+    <Section className="flex items-center justify-center px-6 !pt-0">
+      <div className="overflow-hidden">
+        <div className="mt-14 max-w-(--breakpoint-xl) space-y-8">
+          <Marquee
+            className="mask-x-from-70% mask-x-to-90% [--duration:40s] [&_svg]:mr-10"
+            pauseOnHover
+          >
+            <Logo01 />
+            <Logo02 />
+            <Logo03 />
+            <Logo04 />
+            <Logo05 />
+            <Logo06 />
+            <Logo07 />
+            <Logo08 />
+          </Marquee>
+          <Marquee
+            className="mask-x-from-70% mask-x-to-90% [--duration:40s] [&_svg]:mr-10"
+            pauseOnHover
+            reverse
+          >
+            <Logo01 />
+            <Logo02 />
+            <Logo03 />
+            <Logo04 />
+            <Logo05 />
+            <Logo06 />
+            <Logo07 />
+            <Logo08 />
+          </Marquee>
+        </div>
       </div>
-    </div>
+    </Section>
   );
 };
 
