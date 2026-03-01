@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { CalendlyLink } from "@/components/calendly-link";
 
 const navLinks = [
   { href: "/services", label: "Services" },
@@ -36,7 +37,7 @@ export function Navbar() {
         </div>
         <div className="flex min-w-[140px] shrink-0 justify-end">
           <Button asChild variant="default" size="default">
-            <Link href="/contact">Book a Call</Link>
+            <CalendlyLink>Book a Call</CalendlyLink>
           </Button>
         </div>
       </nav>

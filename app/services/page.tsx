@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { CalendlyLink } from "@/components/calendly-link";
+
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -60,22 +62,20 @@ export default function ServicesPage() {
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                 {service.description}
               </p>
-              <Link
-                href="/contact"
+              <CalendlyLink
                 className="mt-6 inline-block text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
               >
                 Discuss Your Project →
-              </Link>
+              </CalendlyLink>
             </section>
           ))}
         </div>
         <div className="mt-24 text-center">
-          <Link
-            href="/contact"
+          <CalendlyLink
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Book a Strategy Call
-          </Link>
+          </CalendlyLink>
         </div>
       </div>
     </div>

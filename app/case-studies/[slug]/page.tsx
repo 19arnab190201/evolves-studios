@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { CalendlyLink } from "@/components/calendly-link";
 import { getProject, getAllProjects } from "@/lib/projects-data";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -167,9 +168,9 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
         {/* CTA */}
         <div className="mt-20 flex flex-col gap-4 border-t border-border pt-12 sm:flex-row sm:items-center sm:gap-6 lg:pt-16">
           <Button asChild size="lg" className="gap-2">
-            <Link href="/contact">
+            <CalendlyLink>
               Book a Strategy Call <ArrowRight className="size-4" />
-            </Link>
+            </CalendlyLink>
           </Button>
           <Button asChild variant="outline" size="lg">
             <Link href="/#case-studies">View More Case Studies</Link>

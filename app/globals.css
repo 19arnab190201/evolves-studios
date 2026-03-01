@@ -153,3 +153,6 @@
 .\[animation-direction\:reverse\] {
   animation-direction: reverse;
 }
+.calendly-badge-widget {
+  display: none !important;
+}

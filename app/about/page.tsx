@@ -1,6 +1,5 @@
-import Link from "next/link";
-
 import { Button } from "@/components/ui/button";
+import { CalendlyLink } from "@/components/calendly-link";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
@@ -36,7 +35,7 @@ export default function AboutPage() {
         </div>
         <div className="mt-16 flex justify-center">
           <Button asChild size="lg">
-            <Link href="/contact">Book a Strategy Call</Link>
+            <CalendlyLink>Book a Strategy Call</CalendlyLink>
           </Button>
         </div>
       </div>

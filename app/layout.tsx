@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
+import { CalendlyInit } from "@/components/calendly-init";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { StructuredData } from "@/components/structured-data";
@@ -44,7 +45,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
+        <CalendlyInit />
         <StructuredData />
         <Navbar />
         <main className="min-h-screen text-center">{children}</main>

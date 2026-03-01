@@ -1,6 +1,7 @@
 import { ArrowUpRight, CirclePlay } from "lucide-react";
 import { HeroVideo } from "@/components/sections/hero-video";
 import Link from "next/link";
+import { CalendlyLink } from "@/components/calendly-link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
@@ -33,9 +34,9 @@ export default function Hero() {
           </p>
           <div className="mt-12 flex items-center gap-4">
             <Button asChild className="rounded-full text-base" size="lg">
-              <Link href="/contact">
+              <CalendlyLink>
                 Book a Call <ArrowUpRight className="ml-1 size-4" />
-              </Link>
+              </CalendlyLink>
             </Button>
             <Button
               asChild

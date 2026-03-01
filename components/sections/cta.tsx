@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { CalendlyLink } from "@/components/calendly-link";
 import { Section } from "@/components/ui/section";
 
 export function Cta() {
@@ -265,9 +266,9 @@ export function Cta() {
         </div>
         <div className="relative z-0 mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Button asChild>
-            <Link href="/contact">
+            <CalendlyLink>
               Book Strategy Call <ArrowUpRight className="ml-2 size-4" />
-            </Link>
+            </CalendlyLink>
           </Button>
           <Button asChild variant="outline">
             <Link href="/case-studies">
