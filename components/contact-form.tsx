@@ -1,29 +1,33 @@
 "use client";
 
-import { useActionState } from "react";
+import { useCallback } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-import { submitContactForm } from "@/app/actions/contact";
+const MAILTO_EMAIL = "akashmoradiya3444@gmail.com";
 
 export function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, null);
+  const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = (formData.get("name") as string) || "";
+    const email = (formData.get("email") as string) || "";
+    const message = (formData.get("message") as string) || "";
+
+    const subject = encodeURIComponent(`Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    const mailtoUrl = `mailto:${MAILTO_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoUrl;
+  }, []);
 
   return (
-    <form action={formAction} className="mx-auto max-w-md space-y-6">
-      {state?.error && (
-        <p className="text-sm text-foreground" role="alert">
-          {state.error}
-        </p>
-      )}
-      {state?.success && (
-        <p className="text-sm text-muted-foreground" role="status">
-          Thank you. We will be in touch soon.
-        </p>
-      )}
+    <form onSubmit={handleSubmit} className="w-full space-y-6">
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input
@@ -33,7 +37,6 @@ export function ContactForm() {
           placeholder="Your name"
           required
           autoComplete="name"
-          disabled={state?.success}
         />
       </div>
       <div className="space-y-2">
@@ -45,7 +48,6 @@ export function ContactForm() {
           placeholder="you@company.com"
           required
           autoComplete="email"
-          disabled={state?.success}
         />
       </div>
       <div className="space-y-2">
@@ -57,10 +59,9 @@ export function ContactForm() {
           required
           rows={5}
           minLength={10}
-          disabled={state?.success}
         />
       </div>
-      <Button type="submit" size="lg" disabled={state?.success}>
+      <Button type="submit" size="lg">
         Send Message
       </Button>
     </form>

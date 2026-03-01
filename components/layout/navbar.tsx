@@ -1,44 +1,61 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/calendly-link";
-
-const navLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
-] as const;
+import { Logo } from "@/components/logo";
+import { NavMenu } from "@/components/nav-menu";
+import { NavigationSheet } from "@/components/navigation-sheet";
 
 export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
-        <div className="flex min-w-[140px] shrink-0">
-          <Link
-            href="/"
-            className="text-lg font-bold tracking-tight text-foreground"
-          >
-            Evolves Studios
+    <header
+      className={`sticky top-0 z-50 w-full bg-background transition-shadow duration-300 ${
+        isScrolled ? "shadow-sm" : ""
+      }`}
+    >
+      <nav className="flex h-20 items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div
+          className={`flex w-full items-center justify-between px-6 py-1 transition-[border-radius,background-color,border-color,box-shadow,max-width] duration-500 ease-in-out ${
+            isScrolled
+              ? "mx-auto max-w-3xl rounded-full border border-border bg-muted/50 shadow-sm"
+              : "max-w-(--breakpoint-xl)"
+          }`}
+        >
+          <Link href="/" className="flex shrink-0 items-center gap-2">
+            <Logo />
+            <span
+              className={`whitespace-nowrap overflow-hidden text-lg font-semibold transition-all duration-500 ease-in-out ${
+                isScrolled ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100"
+              }`}
+            >
+              Evolves Studios
+            </span>
           </Link>
-        </div>
-        <div className="absolute left-1/2 flex -translate-x-1/2 items-center">
-          <div className="flex items-center gap-1 rounded-full border border-border bg-background px-2 py-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full px-4 py-1.5 text-sm font-medium text-foreground hover:bg-muted hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <NavMenu className="hidden md:flex" compact={isScrolled} />
+
+          <div className="flex items-center gap-3">
+            <Button asChild variant="default" size="default">
+              <CalendlyLink>Book a Call</CalendlyLink>
+            </Button>
+
+            <div className="flex shrink-0 md:hidden">
+              <NavigationSheet />
+            </div>
           </div>
-        </div>
-        <div className="flex min-w-[140px] shrink-0 justify-end">
-          <Button asChild variant="default" size="default">
-            <CalendlyLink>Book a Call</CalendlyLink>
-          </Button>
         </div>
       </nav>
     </header>
