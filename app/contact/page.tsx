@@ -4,8 +4,7 @@ import { ContactForm } from "@/components/contact-form";
 import { generatePageMetadata } from "@/lib/metadata";
 
 // Replace with your actual image URL
-const CONTACT_IMAGE_URL =
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80";
+const CONTACT_IMAGE_URL = "/contact.png";
 
 export const metadata = generatePageMetadata({
   title: "Contact",
