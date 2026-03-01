@@ -1,9 +1,14 @@
-import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export const Logo = () => (
+interface LogoProps {
+  className?: string;
+}
+
+export const Logo = ({ className }: LogoProps) => (
   <svg
     width="46"
     height="46"
+    className={cn("shrink-0", className)}
     viewBox="0 0 46 46"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

@@ -13,7 +13,7 @@ import {
 
 const navLinkClass = cn(
   navigationMenuTriggerStyle(),
-  "bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent"
+  "bg-transparent font-medium hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent"
 );
 
 interface NavMenuProps extends ComponentProps<typeof NavigationMenu> {

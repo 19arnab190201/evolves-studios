@@ -36,9 +36,9 @@ export function Navbar() {
           }`}
         >
           <Link href="/" className="flex shrink-0 items-center gap-2">
-            <Logo />
+            <Logo className="size-10" />
             <span
-              className={`whitespace-nowrap overflow-hidden text-lg font-semibold transition-all duration-500 ease-in-out ${
+              className={`whitespace-nowrap overflow-hidden text-base font-medium transition-all duration-500 ease-in-out ${
                 isScrolled ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100"
               }`}
             >
