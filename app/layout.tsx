@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
 import { CalendlyInit } from "@/components/calendly-init";
+import { LenisProvider } from "@/components/lenis-provider";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { StructuredData } from "@/components/structured-data";
@@ -52,11 +53,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
-        <CalendlyInit />
-        <StructuredData />
-        <Navbar />
-        <main className="min-h-screen text-center">{children}</main>
-        <Footer />
+        <LenisProvider>
+          <CalendlyInit />
+          <StructuredData />
+          <Navbar />
+          <main className="min-h-screen text-center">{children}</main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );
