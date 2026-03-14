@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 
 import { CalendlyInit } from "@/components/calendly-init";
 import { LenisProvider } from "@/components/lenis-provider";
@@ -13,6 +13,12 @@ import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const interDisplay = Inter({
+  weight: "500",
+  variable: "--font-inter-display",
   subsets: ["latin"],
 });
 
@@ -53,7 +59,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${geistSans.variable} font-sans antialiased`}>
+      <body className={`${geistSans.variable} ${interDisplay.variable} font-sans antialiased`}>
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-B66FQ7Y9WW"

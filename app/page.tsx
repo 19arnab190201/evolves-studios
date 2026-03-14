@@ -2,6 +2,7 @@ import LogoCloud from "@/components/logo-cloud";
 import { CaseStudies } from "@/components/sections/case-studies";
 import { ClientLogos } from "@/components/sections/client-logos";
 import { Cta } from "@/components/sections/cta";
+import { HeroTagline } from "@/components/sections/hero-tagline";
 import Hero from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
@@ -21,12 +22,13 @@ export default function HomePage() {
   return (
     <div className="relative">
       <Hero />
+      <HeroTagline />
       {/* <LogoCloud /> */}
       {/* <VideoList /> */}
-      <Stats />
       <CaseStudies />
       {/* <WhyChooseUs /> */}
       <Services />
+      <Stats />
       <Testimonials />
       <Cta />
     </div>

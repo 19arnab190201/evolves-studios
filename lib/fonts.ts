@@ -1,4 +1,4 @@
-import { Syne, DM_Sans } from "next/font/google";
+import { Syne, DM_Sans, Inter } from "next/font/google";
 
 export const syne = Syne({
   subsets: ["latin"],
