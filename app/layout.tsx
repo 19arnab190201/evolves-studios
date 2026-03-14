@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist } from "next/font/google";
 
 import { CalendlyInit } from "@/components/calendly-init";
@@ -53,6 +54,19 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} font-sans antialiased`}>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-B66FQ7Y9WW"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-B66FQ7Y9WW');
+          `}
+        </Script>
         <LenisProvider>
           <CalendlyInit />
           <StructuredData />
