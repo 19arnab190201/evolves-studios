@@ -7,6 +7,8 @@ import {
   Logo06,
   Logo07,
   Logo08,
+  Logo09,
+  Logo10,
 } from "@/components/logos";
 import { Marquee } from "@/components/ui/marquee";
 import { Section } from "@/components/ui/section";
@@ -15,9 +17,9 @@ const LogoCloud = () => {
   return (
     <Section className="flex items-center justify-center px-6 !pt-0">
       <div className="overflow-hidden">
-        <div className="mx-auto mt-14 max-w-7xl space-y-8">
+        <div className="mx-auto mt-10 max-w-7xl">
           <Marquee
-            className="mask-x-from-70% mask-x-to-90% [--duration:40s] [&_svg]:mr-10"
+            className="mask-x-from-70% mask-x-to-90% [--duration:24s] [&_img]:mr-12"
             pauseOnHover
           >
             <Logo01 />
@@ -28,6 +30,8 @@ const LogoCloud = () => {
             <Logo06 />
             <Logo07 />
             <Logo08 />
+            <Logo09 />
+            <Logo10 />
           </Marquee>
         </div>
       </div>

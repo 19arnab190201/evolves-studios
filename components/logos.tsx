@@ -1,21 +1,21 @@
 const logos = [
-  "/logos/1.jpg",
-  "/logos/2.jpg",
-  "/logos/3.jpg",
-  "/logos/4.jpg",
-  "/logos/5.jpg",
-  "/logos/6.jpg",
-  "/logos/7.jpg",
-  "/logos/8.jpg",
-  "/logos/9.jpg",
-  "/logos/10.jpg",
+  "/logos/logo1.png",
+  "/logos/logo2.png",
+  "/logos/logo3.png",
+  "/logos/logo4.png",
+  "/logos/logo5.png",
+  "/logos/logo6.png",
+  "/logos/logo7.png",
+  "/logos/logo8.png",
+  "/logos/logo9.png",
+  "/logos/logo10.png",
 ];
 
 const Logo = ({ src }: { src: string }) => (
   <img
     src={src}
-    alt="Logo"
-    className="max-h-full max-w-[200px] rounded-lg object-contain"
+    alt="Client logo"
+    className="h-24 w-auto max-w-[300px] object-contain opacity-90"
   />
 );
 

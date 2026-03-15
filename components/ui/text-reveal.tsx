@@ -36,10 +36,10 @@ export const TextReveal: FC<TextRevealProps> = ({
   const words = children.split(" ");
 
   return (
-    <div ref={sectionRef} className={cn("relative z-0 h-[200vh]", className)}>
+    <div ref={sectionRef} className={cn("relative z-0 py-16", className)}>
       <div
         className={cn(
-          "sticky top-0 flex h-[50%] items-center bg-transparent px-4 py-20 md:px-6",
+          "flex items-center bg-transparent px-4 py-8 md:px-6",
           contentClassName ?? "mx-auto max-w-4xl",
         )}
       >
@@ -52,8 +52,7 @@ export const TextReveal: FC<TextRevealProps> = ({
         >
           {words.map((word, i) => {
             const start = i / words.length;
-            // Wider range (2.5x) so each word fades in over more scroll = smoother feel
-            const end = start + 2.5 / words.length;
+            const end = (i + 1) / words.length;
             return (
               <Word key={i} progress={scrollYProgress} range={[start, end]}>
                 {word}
@@ -81,7 +80,8 @@ function smoothstep(t: number): number {
 const Word: FC<WordProps> = ({ children, progress, range }) => {
   const [start, end] = range;
   const opacity = useTransform(progress, (v) => {
-    const t = (v - start) / (end - start);
+    const vNorm = 1 - v; // invert so reveal happens when scrolling down
+    const t = (vNorm - start) / (end - start);
     return smoothstep(t);
   });
   return (
