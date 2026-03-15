@@ -10,6 +10,7 @@ const taglineTextClass = "font-medium text-[40px] leading-[46px] text-white/20";
 export function HeroTagline() {
   return (
     <TextReveal
+      className="min-h-screen flex items-center"
       contentClassName="mx-auto w-full max-w-7xl justify-start"
       textClassName={taglineTextClass}
     >

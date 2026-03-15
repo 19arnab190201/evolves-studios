@@ -27,6 +27,7 @@ export const TextReveal: FC<TextRevealProps> = ({
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
+    offset: ["start 80%", "end 20%"],
   });
 
   if (typeof children !== "string") {
@@ -45,14 +46,16 @@ export const TextReveal: FC<TextRevealProps> = ({
       >
         <span
           className={cn(
-            "flex flex-wrap text-black/20 dark:text-white/20",
+            "flex flex-wrap text-white/10",
             textClassName ??
               "text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl",
           )}
         >
           {words.map((word, i) => {
-            const start = i / words.length;
-            const end = (i + 1) / words.length;
+            const total = words.length;
+            const start = i / total;
+            const end = (i + 1.2) / total; // slight overlap between neighbours
+
             return (
               <Word key={i} progress={scrollYProgress} range={[start, end]}>
                 {word}
@@ -71,22 +74,17 @@ interface WordProps {
   range: [number, number];
 }
 
-// Smoothstep for softer ease-in-out on the reveal
-function smoothstep(t: number): number {
-  const x = Math.max(0, Math.min(1, t));
-  return x * x * (3 - 2 * x);
-}
-
 const Word: FC<WordProps> = ({ children, progress, range }) => {
-  const [start, end] = range;
   const opacity = useTransform(progress, (v) => {
-    const vNorm = 1 - v; // invert so reveal happens when scrolling down
-    const t = (vNorm - start) / (end - start);
-    return smoothstep(t);
+    // Compress the animation so it fully completes by 60% scroll progress
+    const p = Math.min(v / 0.6, 1);
+    const [start, end] = range;
+    const t = (p - start) / (end - start || 1);
+    return Math.max(0, Math.min(1, t));
   });
   return (
     <span className="relative mx-1 lg:mx-1.5 xl:mx-3">
-      <span className="absolute opacity-30 [color:inherit]">{children}</span>
+      <span className="absolute opacity-20 [color:inherit]">{children}</span>
       <motion.span style={{ opacity }} className="text-white">
         {children}
       </motion.span>
