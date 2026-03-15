@@ -19,7 +19,7 @@ const LogoCloud = () => {
       <div className="overflow-hidden">
         <div className="mx-auto mt-10 max-w-7xl">
           <Marquee
-            className="mask-x-from-70% mask-x-to-90% [--duration:24s] [&_img]:mr-12"
+            className="mask-x-from-70% mask-x-to-90% [--duration:16s] [&_img]:mr-12"
             pauseOnHover
           >
             <Logo01 />
