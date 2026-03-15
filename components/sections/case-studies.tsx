@@ -33,12 +33,13 @@ export const CaseStudies = () => {
           Built for impact. Built for growth.
         </h2>
         <p className="mt-2 text-left text-sm text-muted-foreground sm:text-base">
-          Explore the work that’s moved brands forward—and what we can build next.
+          Explore the work that’s moved brands forward—and what we can build
+          next.
         </p>
         <div className="mt-10 grid w-full gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <div
-              className="flex w-full flex-col text-start rounded-xl border border-white/5 bg-[#181818] shadow-[0_18px_45px_rgba(0,0,0,0.45)]"
+              className="flex w-full flex-col text-start rounded-xl border border-white/5 bg-[#181818]"
               key={feature.brand}
             >
               <Link
