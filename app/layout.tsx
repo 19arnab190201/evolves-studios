@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { CalendlyInit } from "@/components/calendly-init";
 import { LenisProvider } from "@/components/lenis-provider";
@@ -11,15 +11,10 @@ import { siteMetadata } from "@/lib/metadata";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const interDisplay = Inter({
-  weight: "500",
+const interSans = Inter({
   variable: "--font-inter-display",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -59,7 +54,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${geistSans.variable} ${interDisplay.variable} font-sans antialiased`}>
+      <body className={`${interSans.variable} font-sans antialiased`}>
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-B66FQ7Y9WW"
@@ -77,7 +72,7 @@ export default function RootLayout({
           <CalendlyInit />
           <StructuredData />
           <Navbar />
-          <main className="min-h-screen text-center">{children}</main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </LenisProvider>
       </body>

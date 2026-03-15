@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
-import { Section } from "@/components/ui/section";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Section } from "@/components/ui/section";
 import { Marquee } from "../ui/marquee";
 
 const testimonials = [
@@ -63,13 +64,19 @@ const testimonials = [
 ];
 
 const Testimonials = () => (
-  <Section className="flex items-center justify-center">
+  <Section>
     <div className="mx-auto h-full w-full max-w-6xl px-6">
-      <h2 className="text-pretty px-6 text-center font-semibold text-5xl tracking-[-0.03em]">
-        Success Stories
+      <Badge
+        className="rounded-full border-border px-3 py-1 text-xs font-medium"
+        variant="secondary"
+      >
+        Client Reviews
+      </Badge>
+      <h2 className="mt-5 text-pretty text-left font-semibold text-3xl tracking-[-0.03em]">
+        Real results. Real feedback.
       </h2>
-      <p className="mt-3 text-center text-muted-foreground text-xl">
-        What founders say about building media that scales with Evolves Studios
+      <p className="mt-2 text-left text-muted-foreground text-sm sm:text-base">
+        Hear from founders and teams who’ve turned consistent content into long-term growth with Evolves Studios.
       </p>
       <div className="relative mt-10">
         <div className="absolute inset-y-0 left-0 z-10 w-[15%] bg-linear-to-r from-background to-transparent" />

@@ -1,13 +1,7 @@
 import Link from "next/link";
+import { BarChart3, Mic2, RefreshCw, Share2, User, Video } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
-import {
-  BarChart3,
-  Mic2,
-  RefreshCw,
-  Share2,
-  User,
-  Video,
-} from "lucide-react";
 
 const services = [
   {
@@ -71,14 +65,21 @@ const gridBackgroundStyle = {
 
 export function Services() {
   return (
-    <Section className="mx-auto flex max-w-screen-xl flex-col px-6">
-      <h2 className="text-pretty text-center text-4xl font-semibold tracking-tight sm:text-5xl">
-        Our Services
-      </h2>
-      <p className="mt-3 text-center text-xl text-muted-foreground sm:text-2xl">
-        End-to-end media and growth solutions for founders and SaaS companies.
-      </p>
-      <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <Section className="px-6">
+      <div className="mx-auto flex w-full max-w-6xl flex-col">
+        <Badge
+          className="rounded-full border-border px-3 py-1 text-xs font-medium"
+          variant="secondary"
+        >
+          Our Services
+        </Badge>
+        <h2 className="mt-5 text-pretty text-left text-2xl font-semibold tracking-tight sm:text-3xl">
+          Explore the services that evolves your brand.
+        </h2>
+        <p className="mt-2 text-left text-sm text-muted-foreground sm:text-base">
+          From podcasts to performance creative, every service is built to ship consistent, growth-ready media.
+        </p>
+        <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => {
           const Icon = service.icon;
           return (
@@ -103,6 +104,7 @@ export function Services() {
             </Link>
           );
         })}
+        </div>
       </div>
     </Section>
   );

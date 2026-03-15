@@ -37,7 +37,7 @@ export function WhyChooseUs() {
       <strong className="font-semibold text-muted-foreground">
         Why Choose Us
       </strong>
-      <h2 className="mt-5 max-w-4xl mx-auto text-4xl sm:text-5xl leading-[1.1] font-semibold tracking-tighter text-balance">
+      <h2 className="mt-5 max-w-4xl mx-auto text-2xl sm:text-3xl leading-[1.1] font-semibold tracking-tighter text-balance">
         Built for Founders Who Want Media That Converts
       </h2>
       <p className="mt-5 text-lg text-muted-foreground">

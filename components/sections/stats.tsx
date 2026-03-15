@@ -1,17 +1,22 @@
+import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
 
 export function Stats() {
   return (
     <Section>
       <div className="mx-auto max-w-6xl px-6">
-      <h2 className="font-semibold text-4xl tracking-tighter md:text-5xl text-center">
-        Building Media That Drives Results
-      </h2>
-      <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground text-center">
-        We help founders and SaaS companies build category-defining media
-        through strategic podcast production, content repurposing, and brand
-        building that scales.
-      </p>
+        <Badge
+          className="rounded-full border-border px-3 py-1 text-xs font-medium"
+          variant="secondary"
+        >
+          Key Insights
+        </Badge>
+        <h2 className="mt-5 font-semibold text-2xl tracking-tighter md:text-3xl !text-left">
+          Discover the intelligence behind every visual we build.
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm text-muted-foreground !text-left sm:text-base">
+          Every number tells a story—from episodes produced to pipeline created. Here’s what our work has delivered.
+        </p>
 
       <div className="mt-16 grid justify-center gap-x-10 gap-y-16 sm:mt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <div>

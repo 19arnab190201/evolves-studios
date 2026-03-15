@@ -81,10 +81,10 @@ export function VideoList() {
 
   return (
     <Section className="w-full overflow-hidden px-6">
-      <h2 className="font-semibold text-4xl tracking-tighter md:text-5xl text-center">
+      <h2 className="mt-4 font-semibold text-2xl tracking-tighter md:text-3xl text-center">
         Our Work in Motion
       </h2>
-      <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground text-center">
+      <p className="mt-2 max-w-2xl mx-auto text-sm text-muted-foreground text-center sm:text-base">
         See how we help founders and SaaS companies build category-defining
         media through strategic production and content that scales.
       </p>
