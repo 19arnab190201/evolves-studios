@@ -7,7 +7,7 @@ import { getProject } from "@/lib/projects-data";
 import { getProjectSlugAtTime } from "@/config/hero-video";
 
 const HERO_VIDEO_SRC =
-  "https://res.cloudinary.com/dss9edy22/video/upload/v1772321376/Final_dqpskj.mp4";
+  "https://res.cloudinary.com/dfervibi9/video/upload/v1773771625/Final_2_t0m9z0.mp4";
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
