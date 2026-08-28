@@ -71,7 +71,9 @@
         {
           "id": 11,
           "title": "Nike",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772279054/nike_commercial_xnmuha.mp4"
+          "src": "/work/full/nike.mp4",
+          "preview": "/work/preview/nike.mp4",
+          "poster": "/work/poster/nike.jpg"
         }
       ],
       "featured": true
@@ -95,7 +97,9 @@
         {
           "id": 10,
           "title": "Bliss",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772279241/Bliss_commercial_Main_fzqkhz.mp4"
+          "src": "/work/full/bliss.mp4",
+          "preview": "/work/preview/bliss.mp4",
+          "poster": "/work/poster/bliss.jpg"
         }
       ],
       "featured": true
@@ -119,7 +123,9 @@
         {
           "id": 3,
           "title": "Trimmer",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772276950/Trimmer_commercial_chujxc.mp4"
+          "src": "/work/full/trimmer.mp4",
+          "preview": "/work/preview/trimmer.mp4",
+          "poster": "/work/poster/trimmer.jpg"
         }
       ],
       "featured": false
@@ -143,7 +149,9 @@
         {
           "id": 4,
           "title": "Maluma Vape",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277040/Maluma_ejaxgd.mp4"
+          "src": "/work/full/maluma-vape.mp4",
+          "preview": "/work/preview/maluma-vape.mp4",
+          "poster": "/work/poster/maluma-vape.jpg"
         }
       ],
       "featured": false
@@ -167,7 +175,9 @@
         {
           "id": 5,
           "title": "Chris Bar Vape",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277191/chris_bar_vape_n4itsv.mp4"
+          "src": "/work/full/chris-bar.mp4",
+          "preview": "/work/preview/chris-bar.mp4",
+          "poster": "/work/poster/chris-bar.jpg"
         }
       ],
       "featured": false
@@ -191,12 +201,9 @@
         {
           "id": 6,
           "title": "Super Human Black",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277466/creatine_black_sfk9xa.mp4"
-        },
-        {
-          "id": 8,
-          "title": "Super Human Orange",
-          "src": "https://res.cloudinary.com/dss9edy22/video/upload/v1772277984/Super_Human_Orange_rr4arv.mp4"
+          "src": "/work/full/super-human.mp4",
+          "preview": "/work/preview/super-human.mp4",
+          "poster": "/work/poster/super-human.jpg"
         }
       ],
       "featured": false
