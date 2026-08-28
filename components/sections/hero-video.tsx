@@ -9,6 +9,13 @@ import { getProjectSlugAtTime } from "@/config/hero-video";
 const HERO_VIDEO_SRC =
   "https://res.cloudinary.com/dfervibi9/video/upload/v1773771625/Final_2_t0m9z0.mp4";
 
+/**
+ * First frame of the hero video, shown instantly while the video streams in.
+ * Without it the hero is a blank grey box until enough of an 85 MB file has
+ * buffered. Set this to a poster URL once one is uploaded.
+ */
+const HERO_VIDEO_POSTER: string | undefined = undefined;
+
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,6 +50,7 @@ export function HeroVideo() {
         ref={videoRef}
         className="h-full w-full object-cover"
         src={HERO_VIDEO_SRC}
+        poster={HERO_VIDEO_POSTER}
         autoPlay
         muted
         loop

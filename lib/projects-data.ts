@@ -3,7 +3,15 @@ import projectsJson from "@/data/projects.json";
 export interface ProjectVideo {
   id: number;
   title: string;
+  /** Full commercial, used by the click-to-play detail page player. */
   src: string;
+  /**
+   * Short muted loop for card thumbnails. Roughly a tenth the size of `src`,
+   * so grids of cards stay cheap. Falls back to `src` when absent.
+   */
+  preview?: string;
+  /** Poster frame shown before the video loads. */
+  poster?: string;
 }
 
 export interface Project {

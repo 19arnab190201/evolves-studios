@@ -73,10 +73,13 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
           <div className="mb-16 overflow-hidden rounded-2xl bg-muted/20">
             <video
               src={project.videos[0].src}
+              poster={project.videos[0].poster}
               className="h-auto w-full object-cover"
               controls
               playsInline
-              preload="auto"
+              // Click-to-play, so only fetch enough to show duration and the
+              // first frame. "auto" pulled the whole file on page load.
+              preload="metadata"
             />
             <p className="p-4 text-sm text-muted-foreground">
               {project.videos[0].title}
@@ -151,6 +154,7 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
                 >
                   <video
                     src={video.src}
+                    poster={video.poster}
                     className="h-64 w-full object-cover transition-transform duration-500 hover:scale-105 sm:h-80 lg:h-96"
                     controls
                     playsInline
