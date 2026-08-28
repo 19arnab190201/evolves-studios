@@ -53,7 +53,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
             >
-              <Link href="#case-studies">
+              <Link href="/case-studies">
                 <CirclePlay className="mr-1 size-4" /> View Our Work
               </Link>
             </Button>

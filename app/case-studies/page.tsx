@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import {
   Card,
   CardDescription,
@@ -33,7 +34,19 @@ export default function CaseStudiesPage() {
         </p>
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {projects.map((project) => (
-            <Card key={project.slug}>
+            <Card key={project.slug} className="overflow-hidden pt-0">
+              {project.videos[0] && (
+                <Link
+                  href={`/case-studies/${project.slug}`}
+                  className="group block aspect-video w-full overflow-hidden bg-white/5"
+                >
+                  <LazyVideo
+                    src={project.videos[0].src}
+                    poster={project.videos[0].poster}
+                    className="transition-transform duration-300 group-hover:scale-105"
+                  />
+                </Link>
+              )}
               <CardHeader>
                 <CardDescription>{project.brand} · {project.category}</CardDescription>
                 <CardTitle className="text-2xl">{project.headline}</CardTitle>

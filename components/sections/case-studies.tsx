@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import { Section } from "@/components/ui/section";
 import { getFeaturedProjects } from "@/lib/projects-data";
 
@@ -17,6 +18,7 @@ const features = getFeaturedProjects()
     outcome: p.outcome,
     tutorialLink: `/case-studies/${p.slug}`,
     videoSrc: p.videos[0]?.src ?? "",
+    videoPoster: p.videos[0]?.poster,
   }));
 
 export const CaseStudies = () => {
@@ -46,15 +48,11 @@ export const CaseStudies = () => {
                 href={feature.tutorialLink}
                 className="group block w-full overflow-hidden rounded-t-xl"
               >
-                <div className="aspect-video w-full">
-                  <video
+                <div className="aspect-video w-full bg-white/5">
+                  <LazyVideo
                     src={feature.videoSrc}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
+                    poster={feature.videoPoster}
+                    className="transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
               </Link>

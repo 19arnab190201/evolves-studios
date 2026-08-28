@@ -4,6 +4,8 @@ export interface ProjectVideo {
   id: number;
   title: string;
   src: string;
+  /** Poster frame shown before the video loads. */
+  poster?: string;
 }
 
 export interface Project {
