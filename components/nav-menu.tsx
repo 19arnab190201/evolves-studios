@@ -45,11 +45,6 @@ export const NavMenu = ({ compact, className, ...props }: NavMenuProps) => (
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild className={navLinkClass}>
-          <Link href="/blog">Blog</Link>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationMenuLink asChild className={navLinkClass}>
           <Link href="/about">About</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
