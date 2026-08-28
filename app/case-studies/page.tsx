@@ -41,7 +41,7 @@ export default function CaseStudiesPage() {
                   className="group block aspect-video w-full overflow-hidden bg-white/5"
                 >
                   <LazyVideo
-                    src={project.videos[0].src}
+                    src={project.videos[0].preview ?? project.videos[0].src}
                     poster={project.videos[0].poster}
                     className="transition-transform duration-300 group-hover:scale-105"
                   />

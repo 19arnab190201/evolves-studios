@@ -17,7 +17,8 @@ const features = getFeaturedProjects()
     details: p.summary,
     outcome: p.outcome,
     tutorialLink: `/case-studies/${p.slug}`,
-    videoSrc: p.videos[0]?.src ?? "",
+    // Prefer the lightweight loop; fall back to the full file if absent.
+    videoSrc: p.videos[0]?.preview ?? p.videos[0]?.src ?? "",
     videoPoster: p.videos[0]?.poster,
   }));
 
