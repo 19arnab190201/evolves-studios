@@ -6,7 +6,6 @@ import { HeroTagline } from "@/components/sections/hero-tagline";
 import Hero from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
-import Testimonials from "@/components/sections/testimonials";
 import { VideoList } from "@/components/sections/video-list";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -29,7 +28,6 @@ export default function HomePage() {
       {/* <WhyChooseUs /> */}
       <Services />
       <Stats />
-      <Testimonials />
       <Cta />
     </div>
   );
