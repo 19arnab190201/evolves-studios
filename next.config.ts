@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      // The brand was published misspelled; the slug was corrected with it.
+      {
+        source: "/case-studies/ezdrip-clothing",
+        destination: "/case-studies/ezodrip-clothing",
+        permanent: true,
+      },
     ];
   },
 };
