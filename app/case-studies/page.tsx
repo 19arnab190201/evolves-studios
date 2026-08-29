@@ -1,15 +1,8 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 import { Cta } from "@/components/sections/cta";
-import { Button } from "@/components/ui/button";
 import { LazyVideo } from "@/components/ui/lazy-video";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { getAllProjects } from "@/lib/projects-data";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -36,36 +29,51 @@ export default function CaseStudiesPage() {
           electronics, supplements and lifestyle. Every spot is built to launch
           a product and make people want it.
         </p>
+        {/* The whole card is the link. A separate button underneath meant the
+            card looked clickable but mostly was not, and the button sat alone
+            in its own row. */}
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {projects.map((project) => (
-            <Card key={project.slug} className="overflow-hidden pt-0">
+            <Link
+              key={project.slug}
+              href={`/case-studies/${project.slug}`}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/8 bg-[#141414] transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-[#181818]"
+            >
               {project.videos[0] && (
-                <Link
-                  href={`/case-studies/${project.slug}`}
-                  className="group block aspect-video w-full overflow-hidden bg-white/5"
-                >
+                <div className="relative aspect-video w-full overflow-hidden bg-white/5">
                   <LazyVideo
                     src={project.videos[0].preview ?? project.videos[0].src}
                     poster={project.videos[0].poster}
-                    className="transition-transform duration-300 group-hover:scale-105"
+                    className="transition-transform duration-500 group-hover:scale-[1.04]"
                   />
-                </Link>
+                  {/* Arrow badge, fades and slides in over the footage. */}
+                  <div className="pointer-events-none absolute right-4 top-4 flex size-10 translate-y-1 items-center justify-center rounded-full border border-white/20 bg-black/50 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <ArrowUpRight className="size-5" aria-hidden />
+                  </div>
+                </div>
               )}
-              <CardHeader>
-                <CardDescription>{project.brand} · {project.category}</CardDescription>
-                <CardTitle className="text-2xl">{project.headline}</CardTitle>
-                <CardDescription className="text-base">
+
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+                <span className="text-xs uppercase tracking-[0.14em] text-white/35">
+                  {project.brand} · {project.category}
+                </span>
+                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.015em]">
+                  {project.headline}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-white/50">
                   {project.summary}
-                </CardDescription>
-              </CardHeader>
-              <CardFooter className="justify-center">
-                <Button asChild variant="outline" size="default">
-                  <Link href={`/case-studies/${project.slug}`}>
-                    View Case Study
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+                </p>
+
+                {/* Reads as a link, animates on hover, but is not a nested
+                    interactive element. */}
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors duration-300 group-hover:text-foreground">
+                  View case study
+                  <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+                {/* Underline that draws in from the left. */}
+                <span className="mt-1 block h-px w-0 bg-white/30 transition-all duration-300 group-hover:w-28" />
+              </div>
+            </Link>
           ))}
         </div>
 
