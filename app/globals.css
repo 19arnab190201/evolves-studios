@@ -210,10 +210,29 @@
 
 .sv-cube {
   position: relative;
-  width: 116px;
-  height: 116px;
   transform-style: preserve-3d;
   animation: sv-spin 20s linear infinite;
+}
+
+.sv-cube-lg {
+  width: 116px;
+  height: 116px;
+}
+
+/* Compact variant used inside the 48px homepage icon tiles. */
+.sv-scene-sm {
+  perspective: 150px;
+}
+
+.sv-cube-sm {
+  width: 18px;
+  height: 18px;
+}
+
+.sv-cube-sm .sv-face {
+  border-color: currentColor;
+  opacity: 0.85;
+  background: transparent;
 }
 
 .sv-face {
