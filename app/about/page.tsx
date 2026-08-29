@@ -31,7 +31,11 @@ const grain = {
 
 export default function AboutPage() {
   return (
-    <div className="relative overflow-hidden">
+    // The negative margin belongs on this element, not the section inside it:
+    // overflow-hidden establishes a block formatting context, so a child pulled
+    // above the parent's top edge is simply clipped, and the texture still
+    // appears to start below the header.
+    <div className="relative -mt-20 overflow-hidden">
       {/* Grain sits above everything, at very low opacity. */}
       <div
         aria-hidden
@@ -40,11 +44,9 @@ export default function AboutPage() {
       />
 
       {/* ---------- Hero ---------- */}
-      {/* The sticky header is 80px tall and occupies flow space, so without the
-          negative margin the grid and glows start beneath it, leaving a bare
-          band across the top. Pull the section up behind the header and add
-          that 80px back as top padding so the content sits where it did. */}
-      <section className="relative -mt-20 flex min-h-[88vh] items-center px-6 pb-24 pt-44">
+      {/* pt-44 = the 80px header height the wrapper was pulled up by, plus the
+          96px of top padding the hero wants. */}
+      <section className="relative flex min-h-[88vh] items-center px-6 pb-24 pt-44">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0"
