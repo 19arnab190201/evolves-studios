@@ -1,67 +1,69 @@
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
 
+const stats = [
+  {
+    value: "500+",
+    label: "Projects Delivered",
+    body: "Commercials, product films and campaign assets shipped for consumer brands across categories.",
+  },
+  {
+    value: "10M+",
+    label: "Content Views",
+    body: "Views earned by the work across paid and organic placements.",
+  },
+  {
+    value: "50+",
+    label: "Founders & Brands Served",
+    body: "From single-product launches to established names running multi-market campaigns.",
+  },
+  {
+    value: "300%+",
+    label: "Average Engagement Growth",
+    body: "Typical lift in engagement once brands move to purpose-built creative.",
+  },
+] as const;
+
 export function Stats() {
   return (
-    <Section>
-      <div className="mx-auto max-w-6xl px-6">
+    <Section className="px-6">
+      <div className="mx-auto max-w-7xl">
         <Badge
           className="rounded-full border-border px-3 py-1 text-xs font-medium"
           variant="secondary"
         >
-          Key Insights
+          By the Numbers
         </Badge>
-        <h2 className="mt-5 font-semibold text-2xl tracking-tighter md:text-3xl !text-left">
-          Discover the intelligence behind every visual we build.
+        <h2 className="mt-5 text-left text-3xl font-semibold tracking-tight sm:text-4xl">
+          The work, and what it has added up to.
         </h2>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground !text-left sm:text-base">
-          Every number tells a story—from episodes produced to pipeline created. Here’s what our work has delivered.
+        <p className="mt-3 max-w-2xl text-left text-base text-muted-foreground sm:text-lg">
+          Built over hundreds of launches for brands that needed the product to
+          look like the best thing on the shelf.
         </p>
 
-      <div className="mt-16 grid justify-center gap-x-10 gap-y-16 sm:mt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div>
-          <span className="font-semibold text-5xl tracking-tight md:text-6xl">
-            500+
-          </span>
-          <p className="mt-6 font-medium text-xl">
-            Podcast Episodes Produced
-          </p>
-          <p className="mt-2 text-muted-foreground">
-            High-quality podcast episodes that position founders as thought
-            leaders in their space.
-          </p>
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/8 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map(({ value, label, body }) => (
+            <div
+              key={label}
+              className="group relative overflow-hidden bg-[#141414] p-8 transition-colors duration-300 hover:bg-[#181818]"
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-white/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+              />
+              <div className="relative z-10">
+                <span className="bg-gradient-to-b from-white to-white/40 bg-clip-text text-5xl font-semibold tracking-tight text-transparent md:text-6xl">
+                  {value}
+                </span>
+                <p className="mt-5 text-lg font-medium">{label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">
+                  {body}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-        <div>
-          <span className="font-semibold text-5xl text-muted-foreground tracking-tight md:text-6xl">
-            10M+
-          </span>
-          <p className="mt-6 font-medium text-xl">Content Pieces Created</p>
-          <p className="mt-2 text-muted-foreground">
-            Repurposed content across platforms that maximizes reach and
-            engagement.
-          </p>
-        </div>
-        <div>
-          <span className="font-semibold text-5xl tracking-tight md:text-6xl">
-            50+
-          </span>
-          <p className="mt-6 font-medium text-xl">Founders & Brands Served</p>
-          <p className="mt-2 text-muted-foreground">
-            Trusted by scaling SaaS companies and founder-led brands building
-            category authority.
-          </p>
-        </div>
-        <div>
-          <span className="font-semibold text-5xl text-muted-foreground tracking-tight md:text-6xl">
-            300%+
-          </span>
-          <p className="mt-6 font-medium text-xl">Average Pipeline Growth</p>
-          <p className="mt-2 text-muted-foreground">
-            Data-driven media strategies that consistently drive measurable
-            pipeline and growth.
-          </p>
-        </div>
-      </div>
       </div>
     </Section>
   );
