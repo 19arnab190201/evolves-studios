@@ -30,7 +30,8 @@ export default function Hero() {
             variant="secondary"
           >
             <Link href="#case-studies">
-              Growth & Media Agency <ArrowUpRight className="ml-1 size-4" />
+              3D Commercial Production Studio{" "}
+              <ArrowUpRight className="ml-1 size-4" />
             </Link>
           </Badge>
           <h1 className="mt-6 max-w-[20ch] font-semibold text-4xl leading-[1.2]! tracking-[-0.035em] md:text-5xl lg:text-[2.75rem] xl:text-[3.25rem]">
