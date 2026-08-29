@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { CalendlyLink } from "@/components/calendly-link";
+import { Cta } from "@/components/sections/cta";
 
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -82,13 +83,11 @@ export default function ServicesPage() {
             </section>
           ))}
         </div>
-        <div className="mt-24 text-center">
-          <CalendlyLink
-            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Book a Strategy Call
-          </CalendlyLink>
-        </div>
+      </div>
+
+      {/* Same closing CTA as the homepage, about and case-study pages. */}
+      <div className="mt-16">
+        <Cta />
       </div>
     </div>
   );
