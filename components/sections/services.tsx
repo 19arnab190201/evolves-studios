@@ -1,109 +1,115 @@
 import Link from "next/link";
-import { BarChart3, Mic2, RefreshCw, Share2, User, Video } from "lucide-react";
+import {
+  ArrowUpRight,
+  BarChart3,
+  Boxes,
+  Clapperboard,
+  Package,
+  Palette,
+  Share2,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/ui/section";
 
 const services = [
   {
-    title: "Podcast Production",
+    title: "3D Commercials",
     description:
-      "Full-service podcast production that positions founders as thought leaders in their space.",
-    href: "/services#podcast-production",
-    icon: Mic2,
+      "Fully computer-generated spots built shot by shot. Impossible camera moves, physics you control, and a set that never has to be struck.",
+    href: "/services#3d-commercials",
+    icon: Boxes,
   },
   {
-    title: "Content Repurposing",
+    title: "Product Renders",
     description:
-      "Transform long-form content into a multi-platform distribution engine.",
-    href: "/services#content-repurposing",
-    icon: RefreshCw,
+      "Photoreal stills and turntables from your CAD or packaging art. Every angle, colourway and finish, without a studio day.",
+    href: "/services#product-renders",
+    icon: Package,
   },
   {
-    title: "Distribution Strategy",
+    title: "Video Production",
     description:
-      "Data-driven distribution plans that maximize reach and engagement.",
-    href: "/services#distribution-strategy",
-    icon: Share2,
-  },
-  {
-    title: "Founder Brand Building",
-    description:
-      "Strategic frameworks to build authentic, influential founder brands.",
-    href: "/services#founder-brand-building",
-    icon: User,
+      "Live-action campaign films end to end — direction, shoot and post — for the work that belongs in front of a real lens.",
+    href: "/services#video-production",
+    icon: Clapperboard,
   },
   {
     title: "Video & Social Content",
     description:
-      "Short-form video and social content that drives engagement and builds audience.",
+      "Vertical cutdowns, hooks and platform edits built from the hero film, so one production feeds an entire content calendar.",
     href: "/services#video-social",
-    icon: Video,
+    icon: Share2,
+  },
+  {
+    title: "Brand Visuals",
+    description:
+      "The look that holds it together — art direction, colour, motion language and packaging visuals your brand can reuse.",
+    href: "/services#brand-visuals",
+    icon: Palette,
   },
   {
     title: "Media Strategy",
     description:
-      "Strategic media planning and execution to scale your brand presence.",
+      "Where the work runs and in what order. Channel planning and launch sequencing so the film lands, not just ships.",
     href: "/services#media-strategy",
     icon: BarChart3,
   },
 ] as const;
 
-const gridBackgroundStyle = {
-  backgroundImage: `linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px)`,
-  backgroundSize: "20px 20px",
-  backgroundPosition: "0px 0px, 0px 0px",
-  maskImage: `repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-    repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-    radial-gradient(80% 80% at 100% 0%, rgb(0, 0, 0) 50%, transparent 90%)`,
-  maskComposite: "source-in" as const,
-  WebkitMaskImage: `repeating-linear-gradient(to right, black 0px, black 3px, transparent 3px, transparent 8px),
-    repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 8px),
-    radial-gradient(80% 80% at 100% 0%, rgb(0, 0, 0) 50%, transparent 90%)`,
-  WebkitMaskComposite: "source-in" as const,
-};
-
 export function Services() {
   return (
     <Section className="px-6">
-      <div className="mx-auto flex w-full max-w-6xl flex-col">
+      <div className="mx-auto flex w-full max-w-7xl flex-col">
         <Badge
           className="rounded-full border-border px-3 py-1 text-xs font-medium"
           variant="secondary"
         >
           Our Services
         </Badge>
-        <h2 className="mt-5 text-pretty text-left text-2xl font-semibold tracking-tight sm:text-3xl">
-          Explore the services that evolves your brand.
+        <h2 className="mt-5 text-pretty text-left text-3xl font-semibold tracking-tight sm:text-4xl">
+          Everything that makes the product look inevitable.
         </h2>
-        <p className="mt-2 text-left text-sm text-muted-foreground sm:text-base">
-          From podcasts to performance creative, every service is built to ship consistent, growth-ready media.
+        <p className="mt-3 max-w-2xl text-left text-base text-muted-foreground sm:text-lg">
+          From a single render to a full campaign — built in 3D, shot on set, or
+          both, then cut for every place it needs to run.
         </p>
-        <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => {
-          const Icon = service.icon;
-          return (
-            <Link key={service.title} href={service.href}>
-              <div className="relative overflow-hidden rounded-lg border bg-card px-5 py-7 dark:border-card-foreground/7">
-                <div className="relative z-10 text-left">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/15">
-                    <Icon className="size-6" aria-hidden />
+
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="group relative overflow-hidden rounded-2xl border border-white/8 bg-[#141414] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-[#181818]"
+              >
+                {/* Corner glow, revealed on hover. */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-white/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                />
+
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between">
+                    <div className="flex size-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-foreground transition-colors duration-300 group-hover:border-white/20 group-hover:bg-white/10">
+                      <Icon className="size-5" aria-hidden />
+                    </div>
+                    <ArrowUpRight
+                      className="size-5 -translate-x-1 translate-y-1 text-white/40 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+                      aria-hidden
+                    />
                   </div>
-                  <h3 className="mt-5 text-xl font-semibold tracking-[-0.005em]">
+
+                  <h3 className="mt-6 text-lg font-semibold tracking-[-0.01em] sm:text-xl">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-base text-foreground/90">
+                  <p className="mt-2.5 text-sm leading-relaxed text-white/55">
                     {service.description}
                   </p>
                 </div>
-                <div
-                  className="absolute inset-0 -top-px z-0"
-                  style={gridBackgroundStyle}
-                />
-              </div>
-            </Link>
-          );
-        })}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </Section>

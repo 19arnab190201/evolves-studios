@@ -7,8 +7,10 @@ import { Section } from "@/components/ui/section";
 
 export function Cta() {
   return (
-    <Section>
-      <div className="dark:border relative mx-auto w-full max-w-screen-lg overflow-hidden rounded-2xl border bg-background px-6 py-8 text-foreground dark md:px-14 md:py-12">
+    <Section className="px-6">
+      {/* max-w-7xl matches the case-studies and services sections above and the
+          footer below; this block was max-w-screen-lg and sat visibly inset. */}
+      <div className="dark:border relative mx-auto w-full max-w-7xl overflow-hidden rounded-2xl border bg-background px-6 py-12 text-foreground dark md:px-14 md:py-16">
         <svg
           aria-hidden
           className="pointer-events-none absolute inset-0 h-[200%] w-full fill-gray-400/30 stroke-gray-400/30 [mask-image:radial-gradient(400px_circle_at_right,white,rgba(255,255,255,0.6),transparent)] inset-x-0 inset-y-[-30%] skew-y-12"
@@ -256,23 +258,29 @@ export function Cta() {
             />
           </svg>
         </svg>
-        <div className="relative z-0 flex flex-col gap-3">
-          <h3 className="text-3xl font-semibold md:text-4xl">
-            Ready to Build Category-Defining Media?
+        <div className="relative z-0 max-w-3xl">
+          <h3 className="text-3xl font-semibold tracking-tight md:text-5xl">
+            Got a product that deserves a better film?
           </h3>
-          <p className="mt-2 text-base text-muted-foreground md:text-lg">
-            Book a strategy call and discover how we can help scale your brand.
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
+            Tell us what you’re launching. We’ll come back with a concept, a
+            treatment and a clear scope — before you commit to anything.
           </p>
         </div>
-        <div className="relative z-0 mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Button asChild>
+        <div className="relative z-0 mt-9 flex flex-col gap-3 sm:flex-row">
+          <Button asChild className="rounded-full text-base" size="lg">
             <CalendlyLink>
-              Book Strategy Call <ArrowUpRight className="ml-2 size-4" />
+              Book a Call <ArrowUpRight className="ml-1 size-4" />
             </CalendlyLink>
           </Button>
-          <Button asChild variant="outline">
+          <Button
+            asChild
+            className="rounded-full text-base shadow-none"
+            size="lg"
+            variant="outline"
+          >
             <Link href="/case-studies">
-              View Case Studies <ArrowUpRight className="ml-2 size-4" />
+              View Our Work <ArrowUpRight className="ml-1 size-4" />
             </Link>
           </Button>
         </div>

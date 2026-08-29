@@ -15,56 +15,64 @@ const sections = [
   {
     title: "Services",
     links: [
-      { title: "Podcast Production", href: "/services#podcast-production" },
-      { title: "Content Repurposing", href: "/services#content-repurposing" },
-      { title: "Distribution Strategy", href: "/services#distribution-strategy" },
-      { title: "Founder Brand Building", href: "/services#founder-brand-building" },
+      { title: "3D Commercials", href: "/services#3d-commercials" },
+      { title: "Product Renders", href: "/services#product-renders" },
+      { title: "Video Production", href: "/services#video-production" },
+      { title: "Video & Social Content", href: "/services#video-social" },
+      { title: "Brand Visuals", href: "/services#brand-visuals" },
+      { title: "Media Strategy", href: "/services#media-strategy" },
     ],
   },
   {
-    title: "Case Studies",
+    title: "Selected Work",
     links: [
       { title: "Prime", href: "/case-studies/prime" },
-      { title: "Boat", href: "/case-studies/boat" },
       { title: "Nike", href: "/case-studies/nike" },
-      { title: "Bliss", href: "/case-studies/bliss" },
+      { title: "Sidemen Clothing", href: "/case-studies/sidemen-clothing" },
+      { title: "Cardi B", href: "/case-studies/cardi-b-vape" },
+      { title: "Dream Honey", href: "/case-studies/dream-honey" },
+      { title: "All case studies", href: "/case-studies" },
     ],
   },
 ];
 
 export const Footer = () => {
   return (
-    <footer className="border-t border-border bg-background px-6 py-12">
-      <div className="mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-2 gap-12 sm:grid-cols-4 lg:grid-cols-6">
-          <div className="col-span-full lg:col-span-2">
+    <footer className="border-t border-border bg-background px-6 py-16">
+      {/* max-w-7xl so the footer columns line up with the CTA block and the
+          sections above, which all sit on the same grid. */}
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="col-span-full lg:col-span-3">
             <Logo />
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">
-              Growth & Media Agency for founders and SaaS companies. We build
-              media that scales modern brands through podcast production,
-              content repurposing, and founder brand building.
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Commercial production for consumer product brands. 3D
+              commercials, photoreal renders and campaign films — built to
+              launch products and make people want them.
             </p>
-            <CalendlyLink className="mt-4 inline-block text-sm font-medium text-primary hover:underline">
-              Book a Call
+            <CalendlyLink className="mt-5 inline-block text-sm font-medium text-foreground transition-colors hover:text-muted-foreground">
+              Book a Call →
             </CalendlyLink>
           </div>
-            {sections.map(({ title, links }) => (
-              <div key={title}>
-                <h3 className="text-lg font-semibold">{title}</h3>
-                <ul className="mt-3 flex flex-col gap-2">
-                  {links.map(({ title: linkTitle, href }) => (
-                    <li key={href}>
-                      <Link
-                        href={href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {linkTitle}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {sections.map(({ title, links }) => (
+            <div key={title}>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40">
+                {title}
+              </h3>
+              <ul className="mt-4 flex flex-col gap-2.5">
+                {links.map(({ title: linkTitle, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {linkTitle}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
         <Separator className="my-8" />
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">

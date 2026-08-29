@@ -7,34 +7,46 @@ import { generatePageMetadata } from "@/lib/metadata";
 export const metadata = generatePageMetadata({
   title: "Services",
   description:
-    "Podcast production, content repurposing, distribution strategy, and founder brand building. Growth & media services for founders and SaaS companies.",
+    "3D commercials, photoreal product renders, video production, social content, brand visuals and media strategy for consumer product brands.",
   path: "/services",
 });
 
 const services = [
   {
-    id: "podcast-production",
-    title: "Podcast Production",
+    id: "3d-commercials",
+    title: "3D Commercials",
     description:
-      "Full-service podcast production that positions founders as thought leaders in their space. From concept and format development to recording, editing, and publishing—we handle the entire production pipeline so you can focus on the conversation.",
+      "Fully computer-generated commercials, built shot by shot. Because the set, the product and the physics are all constructed, the camera can do things a rig cannot — travel through a bottle, hold a bead of liquid mid-air, reset a hero angle perfectly on the hundredth take. Lighting is repeatable, so a spot can be extended to new flavours, colourways or SKUs later without reshooting anything.",
   },
   {
-    id: "content-repurposing",
-    title: "Content Repurposing",
+    id: "product-renders",
+    title: "Product Renders",
     description:
-      "Transform long-form content into a multi-platform distribution engine. One podcast episode becomes clips for YouTube, LinkedIn, Twitter, and email. We build the systems and processes so your content works harder across every channel.",
+      "Photoreal stills and turntables generated from your CAD, packaging artwork or a built model. One asset set covers every angle, finish and colourway, at print resolution and in the crops each channel needs — usually before a physical sample exists, and without booking a studio day per variant.",
   },
   {
-    id: "distribution-strategy",
-    title: "Distribution Strategy",
+    id: "video-production",
+    title: "Video Production",
     description:
-      "Data-driven distribution plans that maximize reach and engagement. We analyze where your audience spends time, build partnerships, and create repeatable systems to get your content in front of the right people—consistently.",
+      "Live-action campaign films, handled end to end: direction, casting, shoot and post. For work that needs a real lens — people wearing the product, a room with atmosphere, a moment that should feel captured rather than constructed. Frequently combined with CG elements in the same film.",
   },
   {
-    id: "founder-brand-building",
-    title: "Founder Brand Building",
+    id: "video-social",
+    title: "Video & Social Content",
     description:
-      "Strategic frameworks to build authentic, influential founder brands. We help founders develop their voice, create content systems, and position themselves as category leaders—without sacrificing authenticity or burning out.",
+      "Vertical cutdowns, hook variants and platform-native edits built from the hero film. One production feeds an entire content calendar, with each edit graded and paced for where it actually runs instead of a 16:9 master cropped and reposted.",
+  },
+  {
+    id: "brand-visuals",
+    title: "Brand Visuals",
+    description:
+      "The visual system that holds a campaign together — art direction, colour, typography, motion language and packaging visuals. Defined once and documented, so the next film, render or social drop looks like it belongs to the same brand without rediscovering the look each time.",
+  },
+  {
+    id: "media-strategy",
+    title: "Media Strategy",
+    description:
+      "Where the work runs and in what order. Channel planning, launch sequencing and asset specification, decided before production so the edit list matches the media plan — rather than discovering after delivery that the campaign needs three formats nobody shot for.",
   },
 ] as const;
 
@@ -45,9 +57,9 @@ export default function ServicesPage() {
         <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">
           Services
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          End-to-end media and growth solutions for founders and SaaS companies.
-          We build the systems that scale your brand.
+        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+          Commercial production for consumer product brands — built in 3D, shot
+          on set, or both, then cut for every place it needs to run.
         </p>
         <div className="mt-16 space-y-16">
           {services.map((service) => (
@@ -59,7 +71,7 @@ export default function ServicesPage() {
               <h2 className="text-3xl font-semibold text-foreground md:text-4xl">
                 {service.title}
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              <p className="mt-4 max-w-3xl text-muted-foreground">
                 {service.description}
               </p>
               <CalendlyLink
