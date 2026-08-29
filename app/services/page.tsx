@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { CalendlyLink } from "@/components/calendly-link";
 import { Cta } from "@/components/sections/cta";
+import { ServiceVisual } from "@/components/service-visual";
 
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -65,23 +66,32 @@ export default function ServicesPage() {
           on set, or both, then cut for every place it needs to run.
         </p>
         <div className="mt-16 space-y-16">
-          {services.map((service) => (
+          {services.map((service, i) => (
             <section
               key={service.id}
               id={service.id}
-              className="border-b border-border pb-16 last:border-0"
+              className="grid items-center gap-10 border-b border-border pb-16 last:border-0 lg:grid-cols-2 lg:gap-16"
             >
-              <h2 className="text-3xl font-semibold text-foreground md:text-4xl">
-                {service.title}
-              </h2>
-              <p className="mt-4 max-w-3xl text-muted-foreground">
-                {service.description}
-              </p>
-              <CalendlyLink
-                className="mt-6 inline-block text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
-              >
-                Discuss Your Project →
-              </CalendlyLink>
+              {/* Alternate sides so the page does not read as one long column
+                  with a rail of panels down the edge. */}
+              <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
+                <span className="text-sm font-medium tabular-nums text-white/30">
+                  0{i + 1}
+                </span>
+                <h2 className="mt-3 text-3xl font-semibold text-foreground md:text-4xl">
+                  {service.title}
+                </h2>
+                <p className="mt-4 text-muted-foreground">
+                  {service.description}
+                </p>
+                <CalendlyLink className="mt-6 inline-block text-sm font-medium text-foreground transition-colors hover:text-muted-foreground">
+                  Discuss Your Project →
+                </CalendlyLink>
+              </div>
+
+              <div className={i % 2 === 1 ? "lg:order-1" : undefined}>
+                <ServiceVisual id={service.id} />
+              </div>
             </section>
           ))}
           </div>

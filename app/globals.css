@@ -189,3 +189,143 @@
     animation: none;
   }
 }
+
+/* ---------- /services decorative panels ---------- */
+
+.sv-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, black, transparent);
+  mask-image: radial-gradient(70% 70% at 50% 50%, black, transparent);
+}
+
+.sv-scene {
+  perspective: 620px;
+}
+
+.sv-cube {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  transform-style: preserve-3d;
+  animation: sv-spin 20s linear infinite;
+}
+
+.sv-face {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@keyframes sv-spin {
+  from {
+    transform: rotateX(-22deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-22deg) rotateY(360deg);
+  }
+}
+
+.sv-orbit {
+  animation: sv-orbit 9s linear infinite;
+}
+
+@keyframes sv-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sv-bob {
+  animation: sv-bob 4.5s ease-in-out infinite;
+}
+
+@keyframes sv-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.sv-scan {
+  animation: sv-scan 3.6s ease-in-out infinite;
+}
+
+@keyframes sv-scan {
+  0% {
+    top: 8%;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 92%;
+    opacity: 0;
+  }
+}
+
+.sv-float {
+  animation: sv-float 5s ease-in-out infinite;
+}
+
+@keyframes sv-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.sv-pulse {
+  animation: sv-pulse 3.4s ease-in-out infinite;
+}
+
+@keyframes sv-pulse {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.sv-rise {
+  transform-origin: bottom;
+  animation: sv-rise 3.8s ease-in-out infinite;
+}
+
+@keyframes sv-rise {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-cube,
+  .sv-orbit,
+  .sv-bob,
+  .sv-scan,
+  .sv-float,
+  .sv-pulse,
+  .sv-rise {
+    animation: none;
+  }
+}
