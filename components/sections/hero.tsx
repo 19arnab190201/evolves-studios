@@ -37,9 +37,9 @@ export default function Hero() {
             We Build Media That Scales Brands
           </h1>
           <p className="mt-6 max-w-[60ch] text-foreground/80 sm:text-lg">
-            3D commercials, photoreal product renders and campaign films for
-            consumer brands. Built in 3D, shot on set, then cut for everywhere
-            it has to run.
+            We craft cinematic 3D experiences, photoreal product visuals, and
+            campaign films that transform ordinary products into extraordinary
+            brand moments.
           </p>
           <div className="mt-12 flex items-center gap-4">
             <Button asChild className="rounded-full text-base" size="lg">
