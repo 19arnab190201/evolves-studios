@@ -35,10 +35,13 @@ export function Navbar() {
               : "mx-auto max-w-7xl"
           }`}
         >
-          <Link href="/" className="flex shrink-0 items-center gap-2">
-            <Logo className="size-10" />
+          <Link
+            href="/"
+            className="flex shrink-0 items-center gap-2.5 text-foreground transition-opacity hover:opacity-80"
+          >
+            <Logo className="size-8" />
             <span
-              className={`whitespace-nowrap overflow-hidden text-base font-medium transition-all duration-500 ease-in-out ${
+              className={`overflow-hidden whitespace-nowrap text-[17px] font-semibold leading-none tracking-[-0.02em] transition-all duration-500 ease-in-out ${
                 isScrolled ? "max-w-0 opacity-0" : "max-w-[200px] opacity-100"
               }`}
             >
