@@ -1,7 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
-import { CalendlyLink } from "@/components/calendly-link";
+import { Cta } from "@/components/sections/cta";
 import { Button } from "@/components/ui/button";
 import { LazyVideo } from "@/components/ui/lazy-video";
 import {
@@ -70,34 +69,11 @@ export default function CaseStudiesPage() {
           ))}
         </div>
 
-        {/* The page previously ended on the last card, leaving a convinced
-            visitor with nowhere to go. */}
-        <div className="mt-20 rounded-2xl border border-white/5 bg-[#181818] px-6 py-12 text-center sm:px-12 sm:py-16">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Have a product to launch?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Tell us what you’re building and we’ll show you what the film could
-            look like — concept, treatment and a clear scope, before you commit
-            to anything.
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild className="rounded-full text-base" size="lg">
-              <CalendlyLink>
-                Book a Call <ArrowUpRight className="ml-1 size-4" />
-              </CalendlyLink>
-            </Button>
-            <Button
-              asChild
-              className="rounded-full text-base shadow-none"
-              size="lg"
-              variant="outline"
-            >
-              <Link href="/contact">Send a Brief</Link>
-            </Button>
-          </div>
-        </div>
       </div>
+
+      {/* Shared closing CTA. "View Our Work" would point at this very page, so
+          the secondary action sends a brief instead. */}
+      <Cta secondaryLabel="Send a Brief" secondaryHref="/contact" />
     </div>
   );
 }

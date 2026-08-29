@@ -5,7 +5,20 @@ import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/calendly-link";
 import { Section } from "@/components/ui/section";
 
-export function Cta() {
+interface CtaProps {
+  /**
+   * Secondary action. Defaults to the work listing, but on /case-studies that
+   * would point at the page the visitor is already on, so it is overridden
+   * there to send a brief instead.
+   */
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+export function Cta({
+  secondaryLabel = "View Our Work",
+  secondaryHref = "/case-studies",
+}: CtaProps = {}) {
   return (
     <Section className="px-6">
       {/* max-w-7xl matches the case-studies and services sections above and the
@@ -279,8 +292,8 @@ export function Cta() {
             size="lg"
             variant="outline"
           >
-            <Link href="/case-studies">
-              View Our Work <ArrowUpRight className="ml-1 size-4" />
+            <Link href={secondaryHref}>
+              {secondaryLabel} <ArrowUpRight className="ml-1 size-4" />
             </Link>
           </Button>
         </div>
