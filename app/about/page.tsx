@@ -43,7 +43,11 @@ export default function AboutPage() {
       />
 
       {/* ---------- Hero ---------- */}
-      <section className="relative flex min-h-[88vh] items-center px-6 py-24">
+      {/* The sticky header is 80px tall and occupies flow space, so without the
+          negative margin the grid and glows start beneath it, leaving a bare
+          band across the top. Pull the section up behind the header and add
+          that 80px back as top padding so the content sits where it did. */}
+      <section className="relative -mt-20 flex min-h-[88vh] items-center px-6 pb-24 pt-44">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0"
