@@ -20,7 +20,7 @@ const interSans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.url),
   title: {
-    default: `${siteMetadata.name} | Growth & Media Agency`,
+    default: `${siteMetadata.name} | 3D Commercials & Product Films`,
     template: `%s | ${siteMetadata.name}`,
   },
   description: siteMetadata.description,

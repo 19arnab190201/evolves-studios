@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllCaseStudies } from "@/lib/case-studies-data";
+import { getAllProjects } from "@/lib/projects-data";
 import { siteMetadata } from "@/lib/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -18,8 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const caseStudies = getAllCaseStudies().map((study) => ({
-    url: `${baseUrl}/case-studies/${study.slug}`,
+  // Sourced from projects.json, the same data the pages are generated from.
+  // This previously read lib/case-studies-data.ts, which listed three slugs
+  // that have no page — they returned the not-found view with a 200, i.e.
+  // soft 404s — while none of the real case studies were listed at all.
+  const caseStudies = getAllProjects().map((project) => ({
+    url: `${baseUrl}/case-studies/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,

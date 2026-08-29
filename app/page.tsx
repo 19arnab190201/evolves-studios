@@ -11,9 +11,9 @@ import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { generatePageMetadata } from "@/lib/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Evolves Studios | Growth & Media Agency",
+  title: "Evolves Studios | 3D Commercials & Product Films",
   description:
-    "We build media that scales modern brands. Growth & media agency for founders and SaaS companies. Podcast production, content repurposing, and founder brand building.",
+    "Commercial production studio for consumer product brands. 3D commercials, photoreal product renders, video production, brand visuals and media strategy.",
   path: "/",
 });
 
