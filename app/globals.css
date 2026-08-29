@@ -160,3 +160,32 @@
 .calendly-badge-widget {
   display: none !important;
 }
+
+/* Drifting background glows on the about page. Purely decorative, so they are
+   disabled outright when the visitor asks for reduced motion. */
+@keyframes ev-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) scale(1.12);
+  }
+}
+
+.ev-drift-slow {
+  animation: ev-drift 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+.ev-drift-fast {
+  animation: ev-drift 15s ease-in-out infinite reverse;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ev-drift-slow,
+  .ev-drift-fast {
+    animation: none;
+  }
+}

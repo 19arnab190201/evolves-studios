@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Boxes,
-  Clapperboard,
-  Layers,
-  Repeat,
-  Sparkles,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,81 +10,61 @@ import { getAllProjects } from "@/lib/projects-data";
 export const metadata = generatePageMetadata({
   title: "About",
   description:
-    "Evolves Studios is a commercial production studio for consumer product brands — 3D commercials, photoreal renders and campaign films built to launch products.",
+    "Evolves Studios is a commercial production studio for consumer product brands — built in 3D, shot on set, cut for everywhere it runs.",
   path: "/about",
 });
 
-/** Faint engineering grid, faded out toward the bottom of a block. */
+/** Faint engineering grid, faded out from the top of the block. */
 const gridTexture = {
-  backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)`,
-  backgroundSize: "44px 44px",
-  maskImage: "radial-gradient(90% 70% at 50% 0%, black 30%, transparent 100%)",
+  backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px)`,
+  backgroundSize: "56px 56px",
+  maskImage: "radial-gradient(85% 65% at 50% 0%, black 20%, transparent 95%)",
   WebkitMaskImage:
-    "radial-gradient(90% 70% at 50% 0%, black 30%, transparent 100%)",
+    "radial-gradient(85% 65% at 50% 0%, black 20%, transparent 95%)",
 };
 
-const capabilities = [
-  {
-    icon: Boxes,
-    title: "Built, not just shot",
-    body: "Most of what we make is constructed in 3D. The product, the set and the physics are all ours, so the camera can travel through a bottle, hold liquid mid-air, or reset a hero angle perfectly on the hundredth take.",
-  },
-  {
-    icon: Clapperboard,
-    title: "On set when it earns it",
-    body: "Some things want a real lens — someone wearing the product, a room with weather in it, a moment that should feel caught rather than made. We shoot those, and routinely put CG in the same frame.",
-  },
-  {
-    icon: Repeat,
-    title: "Made to be reused",
-    body: "A CG set does not get struck at wrap. New flavour, new colourway, new SKU — the lighting, the environment and the rig are still there, so campaign two costs a fraction of campaign one.",
-  },
-];
-
-const process = [
-  {
-    step: "01",
-    title: "Concept",
-    body: "We come back with a treatment, references and a shot direction before anything is modelled. You approve an idea, not an invoice.",
-  },
-  {
-    step: "02",
-    title: "Blockout",
-    body: "Grey-model previz of the full spot — timing, camera, staging. Changes here cost minutes. The same changes after lighting cost days.",
-  },
-  {
-    step: "03",
-    title: "Build",
-    body: "Modelling, shading, lighting and simulation, graded to the look agreed at concept. This is where a bottle stops looking like geometry.",
-  },
-  {
-    step: "04",
-    title: "Deliver",
-    body: "Hero film plus every cutdown and aspect the media plan actually needs — specified up front, not retrofitted after delivery.",
-  },
-];
+/** Film-grain overlay. Keeps the large flat panels from banding. */
+const grain = {
+  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+};
 
 export default function AboutPage() {
   const projects = getAllProjects();
-  const brands = Array.from(new Set(projects.map((p) => p.brand)));
-  const categories = Array.from(new Set(projects.map((p) => p.category)));
+  const categories = new Set(projects.map((p) => p.category)).size;
 
   return (
     <div className="relative overflow-hidden">
+      {/* Grain sits above everything, at very low opacity. */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-[1] opacity-[0.035] mix-blend-overlay"
+        style={grain}
+      />
+
       {/* ---------- Hero ---------- */}
-      <section className="relative px-6 pt-24 pb-20 sm:pt-32">
+      <section className="relative flex min-h-[88vh] items-center px-6 py-24">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 z-0"
           style={gridTexture}
         />
+        {/* Layered glows, drifting at different speeds. */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-40 left-1/2 z-0 size-[42rem] -translate-x-1/2 rounded-full bg-white/[0.07] blur-[120px]"
+          className="ev-drift-slow pointer-events-none absolute -top-52 left-1/3 z-0 size-[46rem] rounded-full bg-white/[0.09] blur-[150px]"
+        />
+        <div
+          aria-hidden
+          className="ev-drift-fast pointer-events-none absolute -right-40 top-24 z-0 size-[34rem] rounded-full bg-white/[0.05] blur-[130px]"
+        />
+        {/* Horizon line under the headline. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
           <Badge
             className="rounded-full border-border px-3 py-1 text-xs font-medium"
             variant="secondary"
@@ -99,17 +72,19 @@ export default function AboutPage() {
             About Us
           </Badge>
 
-          <h1 className="mt-6 max-w-4xl text-balance text-4xl font-semibold tracking-[-0.03em] sm:text-6xl lg:text-7xl">
-            We make the film that makes the product look inevitable.
+          <h1 className="mt-7 max-w-5xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.035em] sm:text-6xl lg:text-[5.5rem]">
+            We make the film that makes the product{" "}
+            <span className="bg-gradient-to-br from-white via-white to-white/35 bg-clip-text text-transparent">
+              look inevitable.
+            </span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Evolves Studios is a commercial production studio for consumer
-            product brands. We build spots in 3D, shoot them on set, and cut
-            them for everywhere they have to run.
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            A commercial production studio for consumer product brands. Built in
+            3D, shot on set, or both.
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-11 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="rounded-full text-base" size="lg">
               <CalendlyLink>
                 Book a Call <ArrowUpRight className="ml-1 size-4" />
@@ -127,197 +102,55 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ---------- Facts strip ---------- */}
-      <section className="px-6">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/8 sm:grid-cols-4">
+      {/* ---------- Numbers ---------- */}
+      <section className="relative z-10 px-6 py-20 sm:py-28">
+        <div className="mx-auto grid max-w-7xl grid-cols-3 gap-6">
           {[
-            { value: projects.length, label: "Case studies published" },
-            { value: categories.length, label: "Product categories" },
-            { value: "6", label: "Services, one studio" },
-            { value: "3D + live", label: "Built or shot, or both" },
-          ].map((stat) => (
-            <div key={stat.label} className="bg-[#141414] px-6 py-8">
-              <div className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                {stat.value}
+            { v: projects.length, l: "Case studies" },
+            { v: categories, l: "Categories" },
+            { v: "6", l: "Services" },
+          ].map(({ v, l }) => (
+            <div key={l} className="text-left">
+              <div className="bg-gradient-to-b from-white to-white/30 bg-clip-text text-5xl font-semibold tracking-tight text-transparent sm:text-7xl lg:text-8xl">
+                {v}
               </div>
-              <div className="mt-2 text-sm text-white/45">{stat.label}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/35 sm:text-sm">
+                {l}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ---------- Statement ---------- */}
-      <section className="px-6 py-24 sm:py-32">
+      <section className="relative z-10 px-6 pb-28 sm:pb-36">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
-            <div>
-              <Badge
-                className="rounded-full border-border px-3 py-1 text-xs font-medium"
-                variant="secondary"
-              >
-                How we think
-              </Badge>
-              <h2 className="mt-5 text-3xl font-semibold tracking-tight sm:text-4xl">
-                A product film has one job.
-              </h2>
-            </div>
-
-            <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                Make someone want the thing. Everything else — the render
-                quality, the sim, the grade — only matters to the extent it
-                serves that. A beautiful film that leaves the viewer cold is a
-                showreel piece, not a commercial.
-              </p>
-              <p>
-                So we start with what the product actually has going for it. A
-                texture worth a macro. A pour worth slowing down. A silhouette
-                that reads at thumbnail size in a feed. Then we build the film
-                around that one thing rather than decorating around a brief.
-              </p>
-              <p className="text-foreground">
-                The work has to survive its own distribution. A spot that only
-                looks right at full width on a desktop is a spot that mostly
-                will not be seen — which is why the cutdowns get specified
-                before the shoot, not after it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Capabilities ---------- */}
-      <section className="px-6 pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-5 md:grid-cols-3">
-            {capabilities.map(({ icon: Icon, title, body }) => (
-              <div
-                key={title}
-                className="group relative overflow-hidden rounded-2xl border border-white/8 bg-[#141414] p-8 transition-colors duration-300 hover:border-white/20"
-              >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-white/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-                />
-                <div className="relative z-10">
-                  <div className="flex size-12 items-center justify-center rounded-xl border border-white/10 bg-white/5">
-                    <Icon className="size-5" aria-hidden />
-                  </div>
-                  <h3 className="mt-6 text-xl font-semibold tracking-[-0.01em]">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/55">
-                    {body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Process ---------- */}
-      <section className="relative px-6 pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl">
-          <Badge
-            className="rounded-full border-border px-3 py-1 text-xs font-medium"
-            variant="secondary"
-          >
-            How it runs
-          </Badge>
-          <h2 className="mt-5 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Four stages, and you sign off on each one.
-          </h2>
-          <p className="mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            The expensive surprises in production all come from finding out late.
-            This order exists to move the decisions forward.
-          </p>
-
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/8 sm:grid-cols-2 lg:grid-cols-4">
-            {process.map(({ step, title, body }) => (
-              <div key={step} className="relative bg-[#141414] p-8">
-                <span className="text-sm font-medium tabular-nums text-white/30">
-                  {step}
-                </span>
-                <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-white/55">
-                  {body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- Brands ---------- */}
-      <section className="px-6 pb-24 sm:pb-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-[#141414] px-6 py-12 sm:px-12 sm:py-16">
+          <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-[#141414] px-8 py-16 sm:px-16 sm:py-24">
             <div
               aria-hidden
               className="pointer-events-none absolute inset-0 z-0"
               style={gridTexture}
             />
-            <div className="relative z-10">
-              <div className="flex items-center gap-2 text-sm text-white/45">
-                <Sparkles className="size-4" aria-hidden />
-                Selected work
-              </div>
-              <div className="mt-7 flex flex-wrap gap-x-3 gap-y-3">
-                {brands.map((brand) => (
-                  <span
-                    key={brand}
-                    className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/70"
-                  >
-                    {brand}
-                  </span>
-                ))}
-              </div>
-              <Link
-                href="/case-studies"
-                className="mt-9 inline-flex items-center text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
-              >
-                View all {projects.length} case studies
-                <ArrowUpRight className="ml-1 size-4" aria-hidden />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- CTA ---------- */}
-      <section className="px-6 pb-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-[#141414] px-6 py-14 sm:px-14 sm:py-20">
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-20 -top-20 size-[26rem] rounded-full bg-white/[0.06] blur-[100px]"
+              className="ev-drift-slow pointer-events-none absolute -bottom-40 -right-24 z-0 size-[30rem] rounded-full bg-white/[0.07] blur-[120px]"
             />
-            <div className="relative z-10 max-w-3xl">
-              <Layers className="size-6 text-white/40" aria-hidden />
-              <h2 className="mt-6 text-3xl font-semibold tracking-tight sm:text-5xl">
-                Got a product that deserves a better film?
-              </h2>
-              <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-                Tell us what you’re launching. We’ll come back with a concept, a
-                treatment and a clear scope — before you commit to anything.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Button asChild className="rounded-full text-base" size="lg">
-                  <CalendlyLink>
-                    Book a Call <ArrowUpRight className="ml-1 size-4" />
-                  </CalendlyLink>
-                </Button>
-                <Button
-                  asChild
-                  className="rounded-full text-base shadow-none"
-                  size="lg"
-                  variant="outline"
-                >
-                  <Link href="/contact">Send a Brief</Link>
-                </Button>
-              </div>
-            </div>
+
+            <p className="relative z-10 max-w-4xl text-balance text-2xl font-medium leading-snug tracking-[-0.02em] sm:text-4xl lg:text-5xl">
+              A product film has one job — make someone want the thing.
+              <span className="text-white/40">
+                {" "}
+                Everything else only matters to the extent it serves that.
+              </span>
+            </p>
+
+            <Link
+              href="/services"
+              className="relative z-10 mt-12 inline-flex items-center text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+            >
+              What we do
+              <ArrowUpRight className="ml-1 size-4" aria-hidden />
+            </Link>
           </div>
         </div>
       </section>
