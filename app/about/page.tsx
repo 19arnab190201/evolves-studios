@@ -4,8 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/calendly-link";
+import { Cta } from "@/components/sections/cta";
 import { generatePageMetadata } from "@/lib/metadata";
-import { getAllProjects } from "@/lib/projects-data";
 
 export const metadata = generatePageMetadata({
   title: "About",
@@ -30,9 +30,6 @@ const grain = {
 };
 
 export default function AboutPage() {
-  const projects = getAllProjects();
-  const categories = new Set(projects.map((p) => p.category)).size;
-
   return (
     <div className="relative overflow-hidden">
       {/* Grain sits above everything, at very low opacity. */}
@@ -106,58 +103,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ---------- Numbers ---------- */}
-      <section className="relative z-10 px-6 py-20 sm:py-28">
-        <div className="mx-auto grid max-w-7xl grid-cols-3 gap-6">
-          {[
-            { v: projects.length, l: "Case studies" },
-            { v: categories, l: "Categories" },
-            { v: "6", l: "Services" },
-          ].map(({ v, l }) => (
-            <div key={l} className="text-left">
-              <div className="bg-gradient-to-b from-white to-white/30 bg-clip-text text-5xl font-semibold tracking-tight text-transparent sm:text-7xl lg:text-8xl">
-                {v}
-              </div>
-              <div className="mt-2 text-xs uppercase tracking-[0.18em] text-white/35 sm:text-sm">
-                {l}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------- Statement ---------- */}
-      <section className="relative z-10 px-6 pb-28 sm:pb-36">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-[#141414] px-8 py-16 sm:px-16 sm:py-24">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 z-0"
-              style={gridTexture}
-            />
-            <div
-              aria-hidden
-              className="ev-drift-slow pointer-events-none absolute -bottom-40 -right-24 z-0 size-[30rem] rounded-full bg-white/[0.07] blur-[120px]"
-            />
-
-            <p className="relative z-10 max-w-4xl text-balance text-2xl font-medium leading-snug tracking-[-0.02em] sm:text-4xl lg:text-5xl">
-              A product film has one job — make someone want the thing.
-              <span className="text-white/40">
-                {" "}
-                Everything else only matters to the extent it serves that.
-              </span>
-            </p>
-
-            <Link
-              href="/services"
-              className="relative z-10 mt-12 inline-flex items-center text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
-            >
-              What we do
-              <ArrowUpRight className="ml-1 size-4" aria-hidden />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Same CTA block the homepage closes on. */}
+      <div className="relative z-10">
+        <Cta />
+      </div>
     </div>
   );
 }
