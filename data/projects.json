@@ -285,6 +285,160 @@
         }
       ],
       "featured": false
+    },
+    {
+      "slug": "sidemen-clothing",
+      "brand": "Sidemen Clothing",
+      "category": "Apparel & Streetwear",
+      "headline": "Sidemen Clothing",
+      "summary": "A neon-lit fashion film for the Sidemen apparel line. Hard magenta and cyan keys, light-trail animation and graphic overlays give the garments a stage without ever flattening into a lookbook.",
+      "metrics": [],
+      "challenge": "Apparel films live or die on whether the clothing reads clearly while the edit still feels like the brand. Sidemen carries a loud, internet-native identity, so a clean studio treatment would have looked inert against their own channels.",
+      "solution": "We built the spot around coloured practical lighting and neon linework that traces the figures as they move, cutting between full-body garment reveals and abstract light passages. The palette stays tight — magenta, cyan, deep blue — so every frame is unmistakably one campaign.",
+      "results": "A hero fashion film that presents the range in full while carrying enough motion and graphic energy to hold attention in a social feed.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Sidemen Clothing",
+          "src": "/work/full/sidemen-clothing.mp4",
+          "preview": "/work/preview/sidemen-clothing.mp4",
+          "poster": "/work/poster/sidemen-clothing.jpg"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "sidemen-activewear",
+      "brand": "Sidemen Activewear",
+      "category": "Apparel & Activewear",
+      "headline": "Sidemen Activewear",
+      "summary": "Training-floor film for the Sidemen activewear range. Warm low-key lighting and close handling of the fabric put the product in the context it is actually bought for.",
+      "metrics": [],
+      "challenge": "Activewear has to look capable, not just styled. The film needed to sit in a real training environment and show the garments under load, while staying visually distinct from the main clothing line.",
+      "solution": "We shot on the gym floor with warm, directional light against a dark surround, favouring mid and close framing on fabric, fit and movement. The grade deliberately departs from the neon treatment of the clothing campaign so the two ranges read as siblings rather than repeats.",
+      "results": "A campaign film that positions the range as performance product and gives the line a look of its own within the wider Sidemen identity.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Sidemen Activewear",
+          "src": "/work/full/sidemen-activewear.mp4",
+          "preview": "/work/preview/sidemen-activewear.mp4",
+          "poster": "/work/poster/sidemen-activewear.jpg"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "dream-honey",
+      "brand": "Dream Honey",
+      "category": "Food & Wellness",
+      "headline": "Dream Honey",
+      "summary": "Full CGI product film built around a honeycomb set. Modular hex platforms, soft gradient light and a slow reveal give a small jar genuine scale and presence.",
+      "metrics": [],
+      "challenge": "A honey jar is a small, simple object with little inherent motion. Shot conventionally it reads as packaging rather than as a brand, and there is nothing in the product itself to carry a film.",
+      "solution": "We built the entire environment in CG so the set could become the story: an interlocking honeycomb floor that assembles around the product, lit in warm gold against saturated purple to make the jar the brightest point in frame. Working fully in CG also meant clean geometry and repeatable lighting for future flavours.",
+      "results": "A launch film that gives a single small SKU the weight of a full brand piece, with a CG set that can be reused for range extensions.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Dream Honey",
+          "src": "/work/full/dream-honey.mp4",
+          "preview": "/work/preview/dream-honey.mp4",
+          "poster": "/work/poster/dream-honey.jpg"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "greatness-tee",
+      "brand": "Greatness Tee",
+      "category": "Apparel",
+      "headline": "Greatness Tee",
+      "summary": "Macro-led apparel film. Raking light across weave, stitch and print turns a single tee into texture, detail and craft rather than a flat product shot.",
+      "metrics": [],
+      "challenge": "A one-garment drop offers very little to cut between. The interest has to come from the making of the piece, not from range or styling.",
+      "solution": "We went close and slow — shallow-focus macro across the knit, the embroidery and the print edge, lit at a rake so the surface picks up relief. Deep reds against near-black keep it dramatic while the detail does the selling.",
+      "results": "A film that communicates material quality and construction, giving a single-product drop enough substance to headline a campaign.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Greatness Tee",
+          "src": "/work/full/greatness-tee.mp4",
+          "preview": "/work/preview/greatness-tee.mp4",
+          "poster": "/work/poster/greatness-tee.jpg"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "ezdrip-clothing",
+      "brand": "EZDrip",
+      "category": "Apparel & Streetwear",
+      "headline": "EZDrip Streetwear",
+      "summary": "Atmospheric brand film for EZDrip. Wet asphalt, haze and hard signage build an after-hours world around the label rather than simply presenting the clothing.",
+      "metrics": [],
+      "challenge": "Streetwear sells on belonging as much as on garments. A straight product film would have missed what the brand trades on, which is the sense of an inside track.",
+      "solution": "We built a nocturnal environment — reflective ground, volumetric haze, illuminated MEMBERS ONLY signage — and let the brand marks carry the frame. The restraint is deliberate: the film sets a tone and holds back, which is the point.",
+      "results": "A brand-world film that establishes EZDrip's identity and tone, usable as a campaign opener ahead of individual product pieces.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "EZDrip Streetwear",
+          "src": "/work/full/ezdrip-clothing.mp4",
+          "preview": "/work/preview/ezdrip-clothing.mp4",
+          "poster": "/work/poster/ezdrip-clothing.jpg"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "super-human-coffee",
+      "brand": "Super Human Coffee",
+      "category": "Coffee & Wellness",
+      "headline": "Super Human Coffee",
+      "summary": "CGI product film for the Super Human coffee line. Sachets suspended in a storm of beans, lit warm against deep blue, with the pack graphics held sharp throughout.",
+      "metrics": [],
+      "challenge": "Instant coffee sachets are flat, flexible packs — awkward to shoot, easy to make look cheap, and with none of the ritual imagery the category usually leans on.",
+      "solution": "We simulated the product in CG so the packs could float, rotate and hold their best angle while beans move through the frame around them. Warm key light against a cool background separates pack from field and keeps the front-of-pack legible at every scale.",
+      "results": "A product film that gives the sachet format a premium read, with pack artwork remaining clear from hero frame down to feed thumbnail.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Super Human Coffee",
+          "src": "/work/full/super-human-coffee.mp4",
+          "preview": "/work/preview/super-human-coffee.mp4",
+          "poster": "/work/poster/super-human-coffee.jpg"
+        }
+      ],
+      "featured": false
+    },
+    {
+      "slug": "cardi-b-vape",
+      "brand": "Cardi B",
+      "category": "Lifestyle",
+      "headline": "Cardi B Vape",
+      "summary": "Bright, colour-forward product film for the Cardi B device range. Gradient-finished units arranged on clean white, with the full flavour spectrum in a single frame.",
+      "metrics": [],
+      "challenge": "A range built on colour has to be shown as a range. Isolating one device loses the appeal, but a flat line-up of many reads as a catalogue page rather than a campaign.",
+      "solution": "We staged the devices in a loose scatter on white so the gradients play against each other, using soft even light to keep every finish true. Camera moves stay slow and lateral, letting the colour transitions do the work.",
+      "results": "A film that presents the full range and its colourways together while keeping each individual device clearly identifiable.",
+      "outcome": "",
+      "videos": [
+        {
+          "id": 1,
+          "title": "Cardi B Vape",
+          "src": "/work/full/cardi-b-vape.mp4",
+          "preview": "/work/preview/cardi-b-vape.mp4",
+          "poster": "/work/poster/cardi-b-vape.jpg"
+        }
+      ],
+      "featured": false
     }
   ]
 }
