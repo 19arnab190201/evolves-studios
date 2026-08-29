@@ -1,7 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#0E0E0E"/>
-  <svg viewBox="7 7.26 34 34" x="5" y="5" width="54" height="54">
-    <rect x="8" y="10.864" width="9.63107" height="9.63107" rx="4.81554" fill="#ffffff"/>
-    <rect x="32.3247" y="9" width="8.75721" height="30.0125" rx="4.3786" transform="rotate(28.7796 32.3247 9)" fill="#ffffff"/>
+  <!--
+    No backing shape — just the mark.
+
+    Because the background is transparent, the mark has to carry its own
+    contrast: white would disappear on a light tab strip, black on a dark one.
+    SVG favicons honour prefers-color-scheme, so the fill follows the viewer's
+    theme instead of committing to one.
+  -->
+  <style>
+    .mark { fill: #0E0E0E; }
+    @media (prefers-color-scheme: dark) {
+      .mark { fill: #ffffff; }
+    }
+  </style>
+  <svg viewBox="7 7.26 34 34" x="1" y="1" width="62" height="62">
+    <rect class="mark" x="8" y="10.864" width="9.63107" height="9.63107" rx="4.81554"/>
+    <rect class="mark" x="32.3247" y="9" width="8.75721" height="30.0125" rx="4.3786"
+          transform="rotate(28.7796 32.3247 9)"/>
   </svg>
 </svg>
