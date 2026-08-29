@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
+import { Cta } from "@/components/sections/cta";
 import { Button } from "@/components/ui/button";
-import { CalendlyLink } from "@/components/calendly-link";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import { getProject, getAllProjects } from "@/lib/projects-data";
 import { generatePageMetadata } from "@/lib/metadata";
 
@@ -35,6 +36,11 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
   if (!project) {
     notFound();
   }
+
+  // Wraps around, so the final case study points back to the first.
+  const all = getAllProjects();
+  const idx = all.findIndex((p) => p.slug === project.slug);
+  const next = idx >= 0 ? all[(idx + 1) % all.length] : undefined;
 
   return (
     <div className="min-h-screen w-full">
@@ -123,7 +129,7 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
                 </div>
               </div>
             </section>
-            <section className="border-b border-border py-8 lg:py-12">
+            <section className="border-border py-8 lg:py-12">
               <div className="grid grid-cols-1 items-start justify-items-start gap-8 text-left lg:grid-cols-[1fr_2fr] lg:gap-12">
                 <div className="min-w-0">
                   <span className="block text-4xl font-light text-muted-foreground sm:text-5xl lg:text-6xl">
@@ -169,18 +175,47 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
           </section>
         )}
 
-        {/* CTA */}
-        <div className="mt-20 flex flex-col gap-4 border-t border-border pt-12 sm:flex-row sm:items-center sm:gap-6 lg:pt-16">
-          <Button asChild size="lg" className="gap-2">
-            <CalendlyLink>
-              Book a Strategy Call <ArrowRight className="size-4" />
-            </CalendlyLink>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/#case-studies">View More Case Studies</Link>
-          </Button>
-        </div>
+        {/* Next project — keeps people moving through the work instead of
+            landing on a dead end after the last paragraph. */}
+        {next && (
+          <Link
+            href={`/case-studies/${next.slug}`}
+            className="group relative mt-16 block overflow-hidden rounded-2xl border border-white/8 bg-[#141414] transition-all duration-300 hover:-translate-y-1 hover:border-white/20"
+          >
+            <div
+              aria-hidden
+              className="ev-drift-slow pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-white/[0.07] blur-[100px]"
+            />
+            <div className="relative z-10 grid gap-6 p-6 sm:grid-cols-[220px_1fr] sm:items-center sm:p-8">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-white/5">
+                <LazyVideo
+                  src={next.videos[0]?.preview ?? next.videos[0]?.src ?? ""}
+                  poster={next.videos[0]?.poster}
+                  className="transition-transform duration-500 group-hover:scale-[1.06]"
+                />
+              </div>
+              <div>
+                <span className="text-xs uppercase tracking-[0.16em] text-white/35">
+                  Next case study
+                </span>
+                <h2 className="mt-2 text-2xl font-semibold tracking-[-0.015em] sm:text-3xl">
+                  {next.headline}
+                </h2>
+                <p className="mt-2 text-sm text-white/50">
+                  {next.brand} · {next.category}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-white/60 transition-colors group-hover:text-foreground">
+                  View case study
+                  <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </span>
+                <span className="mt-1 block h-px w-0 bg-white/30 transition-all duration-300 group-hover:w-28" />
+              </div>
+            </div>
+          </Link>
+        )}
       </section>
+
+      <Cta secondaryLabel="View Our Work" secondaryHref="/case-studies" />
     </div>
   );
 }
