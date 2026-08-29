@@ -54,7 +54,9 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      {/* Padding outside, max-w-7xl inside, matching the CTA and footer. */}
+      <div className="px-6">
+        <div className="mx-auto max-w-7xl">
         <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">
           Services
         </h1>
@@ -82,6 +84,7 @@ export default function ServicesPage() {
               </CalendlyLink>
             </section>
           ))}
+          </div>
         </div>
       </div>
 

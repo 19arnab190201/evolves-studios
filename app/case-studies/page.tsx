@@ -18,7 +18,12 @@ export default function CaseStudiesPage() {
 
   return (
     <div className="py-24">
-      <div className="mx-auto max-w-6xl px-6">
+      {/* Padding goes on the outer wrapper, max-w-7xl on the inner one — the
+          same nesting the CTA and footer use. With px-6 on the same element as
+          max-w-7xl the padding eats into the 1280 and the grid ends up 48px
+          narrower than everything below it. */}
+      <div className="px-6">
+        <div className="mx-auto max-w-7xl">
         <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">
           Case Studies
         </h1>
@@ -75,8 +80,8 @@ export default function CaseStudiesPage() {
               </div>
             </Link>
           ))}
+          </div>
         </div>
-
       </div>
 
       {/* Shared closing CTA. "View Our Work" would point at this very page, so
