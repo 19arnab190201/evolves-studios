@@ -76,11 +76,20 @@ export default async function ProjectPage({ params }: CaseStudyPageProps) {
 
         {/* Hero video */}
         {project.videos.length > 0 && (
-          <div className="mb-16 overflow-hidden rounded-2xl bg-muted/20">
+          <div className="mb-16 overflow-hidden rounded-2xl bg-black/40">
+            {/*
+              Sized by height rather than forced to full width. Not every film
+              here is 16:9 — the Sidemen activewear spot is 1080x1920 — and
+              `w-full` on a portrait video made it roughly 1100x1955, a wall of
+              video you had to scroll past. Capping the height and letting the
+              width follow keeps every aspect ratio at its native shape.
+            */}
             <video
               src={project.videos[0].src}
               poster={project.videos[0].poster}
-              className="h-auto w-full object-cover"
+              // `block` matters: a video is inline by default, so mx-auto has
+              // nothing to centre and a portrait film sits against the left edge.
+              className="mx-auto block max-h-[78vh] w-auto max-w-full"
               controls
               playsInline
               // Click-to-play, so only fetch enough to show duration and the
